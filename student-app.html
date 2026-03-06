@@ -9,355 +9,537 @@
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
 body{font-family:'Pretendard Variable','Apple SD Gothic Neo',-apple-system,sans-serif;background:#F5F7FA;max-width:480px;margin:0 auto;min-height:100vh;overflow-x:hidden;}
 button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none;}
-
-/* ── Top Bar ── */
 .top-bar{padding:14px 16px 0;display:flex;align-items:center;justify-content:space-between;}
 .logo{font-size:18px;font-weight:900;letter-spacing:-0.04em;}
 .logo .w{color:#1B1F26;}.logo .u{color:#0084FF;}
-.avatar{width:32px;height:32px;border-radius:10px;background:#E6E9EF;display:flex;align-items:center;justify-content:center;font-size:14px;}
-
-/* ── Content ── */
-.content{padding:16px 16px 80px;min-height:calc(100vh - 100px);}
+.top-right{display:flex;align-items:center;gap:10px;}
+.noti-btn{position:relative;font-size:18px;}
+.noti-btn .dot{position:absolute;top:-2px;right:-2px;width:8px;height:8px;border-radius:50%;background:#E25544;border:2px solid #F5F7FA;}
+.avatar-sm{width:28px;height:28px;border-radius:8px;background:#E6E9EF;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#7D848C;}
+.content{padding:0 16px 90px;min-height:calc(100vh - 100px);}
 .tab-content{display:none;}.tab-content.active{display:block;}
-
-/* ── Bottom Nav ── */
-.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;border-top:1px solid #E6E9EF;display:flex;padding:8px 0 env(safe-area-inset-bottom, 12px);z-index:100;}
-.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:2px;cursor:pointer;position:relative;}
-.nav-item .icon{font-size:18px;position:relative;}
-.nav-item .badge{position:absolute;top:-4px;right:-8px;width:14px;height:14px;border-radius:7px;background:#E25544;color:#fff;font-size:8px;font-weight:800;display:flex;align-items:center;justify-content:center;}
-.nav-item .label{font-size:10px;font-weight:500;color:#9DA2AA;}
+.bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:480px;background:#fff;border-top:1px solid #E6E9EF;display:flex;padding:6px 0 env(safe-area-inset-bottom,12px);z-index:100;}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:1px;cursor:pointer;position:relative;padding:4px 0;}
+.nav-item .icon{font-size:17px;position:relative;line-height:1.2;}
+.nav-item .badge{position:absolute;top:-4px;right:-8px;min-width:14px;height:14px;border-radius:7px;background:#E25544;color:#fff;font-size:8px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 3px;}
+.nav-item .label{font-size:9px;font-weight:500;color:#9DA2AA;}
 .nav-item.active .label{font-weight:700;color:#0084FF;}
-.nav-item.active::before{content:'';position:absolute;top:-8px;width:20px;height:3px;border-radius:2px;background:#0084FF;}
-
-/* ── Common ── */
-.section-title{font-size:18px;font-weight:800;color:#121314;margin-bottom:16px;}
-.card{background:#fff;border-radius:16px;border:1px solid #E6E9EF;}
-
-/* ── Day Tabs (our style) ── */
-.day-tabs{display:flex;gap:4px;margin-bottom:14px;}
-.day-tab{padding:7px 0;flex:1;min-width:0;border-radius:10px;font-size:13px;font-weight:500;background:#fff;color:#9DA2AA;display:flex;flex-direction:column;align-items:center;gap:2px;box-shadow:0 1px 2px rgba(0,0,0,0.04);transition:all .15s;}
+.nav-item.active::before{content:'';position:absolute;top:0;width:20px;height:2.5px;border-radius:2px;background:#0084FF;}
+.section-title{font-size:17px;font-weight:800;color:#121314;margin-bottom:14px;}
+.section-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.section-header .more{font-size:11px;color:#0084FF;font-weight:600;}
+.card{background:#fff;border-radius:14px;border:1px solid #E6E9EF;}
+.card-p{padding:14px;}
+/* Day Tabs */
+.day-tabs{display:flex;gap:3px;margin-bottom:12px;}
+.day-tab{padding:6px 0;flex:1;min-width:0;border-radius:9px;font-size:12px;font-weight:500;background:#fff;color:#9DA2AA;display:flex;flex-direction:column;align-items:center;gap:1px;box-shadow:0 1px 2px rgba(0,0,0,0.04);transition:all .15s;}
 .day-tab.sel{background:#0084FF;color:#fff;font-weight:800;box-shadow:0 2px 8px rgba(0,132,255,0.25);}
 .day-tab.sat{color:#0084FF;}.day-tab.sun{color:#E25544;}
 .day-tab.sel.sat,.day-tab.sel.sun{color:#fff;}
 .day-tab .cnt{font-size:7px;font-weight:700;font-family:monospace;color:#C0C5CC;}
 .day-tab.sel .cnt{color:rgba(255,255,255,0.6);}
-
-/* ── Schedule Cards ── */
-.attend-row{display:flex;gap:8px;margin-bottom:12px;}
-.attend-card{flex:1;padding:10px 12px;background:#fff;border-radius:12px;border:1px solid #D6DAE2;}
-.attend-card .lbl{font-size:9px;font-weight:600;color:#9DA2AA;margin-bottom:2px;}
-.attend-card .val{font-size:14px;font-weight:800;color:#121314;font-family:monospace;}
-.attend-card .val .arr{color:#C0C5CC;font-size:10px;}
-.study-card{min-width:85px;padding:10px 12px;background:linear-gradient(135deg,#005FA3,#0084FF);border-radius:12px;}
-.study-card .lbl{font-size:9px;font-weight:600;color:rgba(255,255,255,0.5);margin-bottom:2px;}
-.study-card .val{font-size:16px;font-weight:900;color:#fff;font-family:monospace;}
-.time-bar{display:flex;height:6px;border-radius:3px;overflow:hidden;gap:2px;margin-bottom:4px;}
+/* Schedule cards */
+.attend-row{display:flex;gap:6px;margin-bottom:10px;}
+.attend-card{flex:1;padding:8px 10px;background:#fff;border-radius:10px;border:1px solid #D6DAE2;}
+.attend-card .lbl{font-size:8px;font-weight:600;color:#9DA2AA;margin-bottom:1px;}
+.attend-card .val{font-size:13px;font-weight:800;color:#121314;font-family:monospace;}
+.attend-card .val .arr{color:#C0C5CC;font-size:9px;}
+.study-card{min-width:80px;padding:8px 10px;background:linear-gradient(135deg,#005FA3,#0084FF);border-radius:10px;}
+.study-card .lbl{font-size:8px;font-weight:600;color:rgba(255,255,255,0.5);margin-bottom:1px;}
+.study-card .val{font-size:15px;font-weight:900;color:#fff;font-family:monospace;}
+.time-bar{display:flex;height:5px;border-radius:3px;overflow:hidden;gap:2px;margin-bottom:3px;}
 .time-bar .cls{background:linear-gradient(90deg,#005FA3,#0084FF);border-radius:3px;}
 .time-bar .self{background:#D6DAE2;border-radius:3px;}
-.time-legend{display:flex;gap:10px;margin-bottom:16px;}
-.time-legend span{display:flex;align-items:center;gap:3px;font-size:9px;color:#7D848C;}
-.time-legend .dot{width:5px;height:5px;border-radius:2px;}
-
-/* ── Class List ── */
-.class-list{display:flex;flex-direction:column;gap:6px;}
-.gap-label{text-align:center;font-size:10px;color:#9DA2AA;padding:4px 0;}
-.class-card{background:#fff;border-radius:12px;padding:12px 14px;border:1px solid #E6E9EF;}
-.class-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
-.class-info{display:flex;align-items:center;gap:8px;}
-.sbadge{width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:800;flex-shrink:0;}
-.class-name{font-size:13px;font-weight:700;color:#121314;}
-.class-teacher{font-size:10px;color:#9DA2AA;margin-top:1px;}
-.class-dur{padding:2px 8px;border-radius:6px;font-size:9px;font-weight:700;}
-.class-meta{display:flex;gap:12px;padding-left:38px;}
-.class-meta span{font-size:10px;color:#9DA2AA;}
+.time-legend{display:flex;gap:8px;margin-bottom:14px;}
+.time-legend span{display:flex;align-items:center;gap:3px;font-size:8px;color:#7D848C;}
+.time-legend .dot{width:4px;height:4px;border-radius:2px;}
+/* Class list */
+.class-list{display:flex;flex-direction:column;gap:5px;}
+.gap-label{text-align:center;font-size:9px;color:#9DA2AA;padding:3px 0;}
+.class-card{background:#fff;border-radius:11px;padding:10px 12px;border:1px solid #E6E9EF;transition:all .15s;}
+.class-card.now{border-color:#0084FF;background:#FAFCFF;box-shadow:0 0 0 1px #0084FF;}
+.class-card.done{opacity:0.55;}
+.class-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:3px;}
+.class-info{display:flex;align-items:center;gap:7px;}
+.sbadge{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:800;flex-shrink:0;}
+.class-name{font-size:12px;font-weight:700;color:#121314;}
+.class-teacher{font-size:9px;color:#9DA2AA;margin-top:1px;}
+.class-right{display:flex;flex-direction:column;align-items:flex-end;gap:2px;}
+.class-dur{padding:2px 7px;border-radius:5px;font-size:8px;font-weight:700;}
+.class-status{font-size:8px;font-weight:700;padding:2px 6px;border-radius:4px;}
+.class-status.done-s{background:#EDFBF3;color:#22A368;}
+.class-status.now-s{background:#EBF6FF;color:#0084FF;}
+.class-status.late-s{background:#FEF1EE;color:#E25544;}
+.class-meta{display:flex;gap:10px;padding-left:35px;}
+.class-meta span{font-size:9px;color:#9DA2AA;}
 .class-meta .time{font-family:monospace;}
-.empty-msg{text-align:center;padding:36px 20px;color:#C0C5CC;font-size:13px;}
-
-/* ── Attendance ── */
-.qr-area{padding:24px 20px;margin-bottom:16px;text-align:center;}
-.qr-msg{font-size:12px;color:#9DA2AA;margin-bottom:12px;font-weight:500;}
-.qr-btn{width:120px;height:120px;border-radius:50%;margin:0 auto 16px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all .3s;}
+.now-indicator{display:flex;align-items:center;gap:6px;margin-bottom:6px;}
+.now-indicator .pulse{width:8px;height:8px;border-radius:50%;background:#0084FF;animation:pulse 1.5s infinite;}
+.now-indicator .txt{font-size:10px;font-weight:700;color:#0084FF;}
+@keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,132,255,0.4);}50%{opacity:0.7;box-shadow:0 0 0 6px rgba(0,132,255,0);}}
+.empty-msg{text-align:center;padding:32px 20px;color:#C0C5CC;font-size:12px;}
+/* Home specific */
+.home-header{padding:20px 0 16px;}
+.greeting{font-size:14px;font-weight:800;color:#121314;margin-bottom:2px;}
+.greeting-sub{font-size:11px;color:#9DA2AA;}
+.status-card{background:linear-gradient(135deg,#005FA3,#0084FF);border-radius:14px;padding:16px;margin-bottom:14px;color:#fff;}
+.status-top{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.status-pulse{width:10px;height:10px;border-radius:50%;background:#4ADE80;animation:pulse 1.5s infinite;}
+.status-label{font-size:13px;font-weight:700;}
+.status-detail{font-size:11px;opacity:0.7;}
+.status-stats{display:flex;gap:8px;}
+.status-stat{flex:1;background:rgba(255,255,255,0.15);border-radius:10px;padding:10px;text-align:center;}
+.status-stat .sv{font-size:18px;font-weight:900;}
+.status-stat .sl{font-size:8px;opacity:0.6;margin-top:2px;}
+.home-section{margin-bottom:16px;}
+.next-class{display:flex;align-items:center;gap:10px;padding:12px;}
+.next-class .countdown{font-size:20px;font-weight:900;color:#0084FF;font-family:monospace;min-width:50px;}
+.next-class .nc-info .nc-name{font-size:12px;font-weight:700;color:#121314;}
+.next-class .nc-info .nc-meta{font-size:10px;color:#9DA2AA;margin-top:2px;}
+.mini-hw{padding:10px 14px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #F5F7FA;}
+.mini-hw:last-child{border:none;}
+.mini-hw .hw-dot{width:6px;height:6px;border-radius:2px;flex-shrink:0;}
+.mini-hw .hw-t{font-size:11px;font-weight:600;color:#121314;flex:1;}
+.mini-hw .hw-d{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;}
+.mini-hw .hw-d.urgent{background:#FEF1EE;color:#E25544;}
+.mini-hw .hw-d.normal{background:#F5F7FA;color:#7D848C;}
+/* Attendance */
+.qr-area{padding:20px;margin-bottom:14px;text-align:center;}
+.qr-msg{font-size:11px;color:#9DA2AA;margin-bottom:10px;font-weight:500;}
+.qr-btn{width:110px;height:110px;border-radius:50%;margin:0 auto 14px;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:all .3s;}
 .qr-btn.off{background:#F5F7FA;border:3px dashed #D6DAE2;}
 .qr-btn.on{background:linear-gradient(135deg,#005FA3,#0084FF);border:none;box-shadow:0 4px 20px rgba(0,132,255,0.25);}
-.qr-btn .emoji{font-size:32px;margin-bottom:4px;}
-.qr-btn .hint{font-size:11px;color:#9DA2AA;font-weight:600;}
-.qr-btn .timer-lbl{font-size:10px;color:rgba(255,255,255,0.7);margin-bottom:4px;}
-.qr-btn .timer-val{font-size:24px;font-weight:900;color:#fff;font-family:monospace;}
-.checkout-btn{padding:10px 28px;border-radius:10px;font-size:13px;font-weight:700;background:#FEF1EE;color:#E25544;}
-.week-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-.week-total{font-size:12px;font-weight:800;color:#0084FF;font-family:monospace;}
-.bar-chart{display:flex;gap:4px;align-items:flex-end;height:100px;margin-bottom:12px;}
-.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;}
-.bar-col .bar-val{font-size:8px;color:#9DA2AA;font-family:monospace;font-weight:600;}
-.bar-col .bar{width:100%;border-radius:4px;transition:height .3s;}
+.qr-btn .emoji{font-size:28px;margin-bottom:3px;}
+.qr-btn .hint{font-size:10px;color:#9DA2AA;font-weight:600;}
+.qr-btn .timer-lbl{font-size:9px;color:rgba(255,255,255,0.7);margin-bottom:3px;}
+.qr-btn .timer-val{font-size:22px;font-weight:900;color:#fff;font-family:monospace;}
+.checkout-btn{padding:8px 24px;border-radius:9px;font-size:12px;font-weight:700;background:#FEF1EE;color:#E25544;}
+/* Timeline */
+.timeline{padding:14px;}
+.tl-title{font-size:11px;font-weight:700;color:#7D848C;margin-bottom:10px;}
+.tl-item{display:flex;gap:10px;position:relative;padding-bottom:14px;}
+.tl-item:last-child{padding-bottom:0;}
+.tl-item::before{content:'';position:absolute;left:5px;top:14px;bottom:0;width:1px;background:#E6E9EF;}
+.tl-item:last-child::before{display:none;}
+.tl-dot{width:11px;height:11px;border-radius:50%;border:2px solid #D6DAE2;background:#fff;flex-shrink:0;margin-top:2px;z-index:1;}
+.tl-dot.in{border-color:#0084FF;background:#0084FF;}
+.tl-dot.out{border-color:#E25544;background:#E25544;}
+.tl-body .tl-time{font-size:10px;font-weight:700;color:#121314;font-family:monospace;}
+.tl-body .tl-desc{font-size:10px;color:#9DA2AA;margin-top:1px;}
+/* Bar chart */
+.bar-chart{display:flex;gap:3px;align-items:flex-end;height:90px;margin-bottom:10px;}
+.bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
+.bar-col .bar-val{font-size:7px;color:#9DA2AA;font-family:monospace;font-weight:600;}
+.bar-col .bar{width:100%;border-radius:3px;transition:height .3s;}
 .bar-col .bar.filled{background:linear-gradient(180deg,#0084FF,#005FA3);}
 .bar-col .bar.empty{background:#E6E9EF;}
-.bar-col .bar-day{font-size:10px;font-weight:600;color:#9DA2AA;}
+.bar-col .bar-day{font-size:9px;font-weight:600;color:#9DA2AA;}
 .bar-col .bar-day.active{color:#121314;}
-.goal-box{padding:10px 12px;background:#F5F7FA;border-radius:10px;}
-.goal-row{display:flex;justify-content:space-between;margin-bottom:6px;}
-.goal-row .gl{font-size:10px;color:#7D848C;font-weight:600;}
-.goal-row .gp{font-size:10px;color:#0084FF;font-weight:700;}
-.goal-track{height:6px;background:#D6DAE2;border-radius:3px;overflow:hidden;}
+.goal-box{padding:8px 10px;background:#F5F7FA;border-radius:9px;}
+.goal-row{display:flex;justify-content:space-between;margin-bottom:4px;}
+.goal-row .gl{font-size:9px;color:#7D848C;font-weight:600;}
+.goal-row .gp{font-size:9px;color:#0084FF;font-weight:700;}
+.goal-track{height:5px;background:#D6DAE2;border-radius:3px;overflow:hidden;}
 .goal-fill{height:100%;background:linear-gradient(90deg,#005FA3,#0084FF);border-radius:3px;}
-
-/* ── Notice ── */
-.notice-list{display:flex;flex-direction:column;gap:8px;}
-.notice-item{background:#fff;border-radius:14px;padding:14px 16px;cursor:pointer;}
-.notice-top{display:flex;align-items:center;gap:6px;margin-bottom:6px;}
-.notice-tag{padding:2px 7px;border-radius:5px;font-size:9px;font-weight:700;}
-.notice-dot{width:6px;height:6px;border-radius:50%;background:#E25544;}
-.notice-date{font-size:10px;color:#9DA2AA;margin-left:auto;}
-.notice-title{font-size:13px;font-weight:700;color:#121314;line-height:1.3;}
-.notice-author{font-size:11px;color:#9DA2AA;margin-top:4px;}
-.notice-detail .back-btn{font-size:13px;color:#7D848C;font-weight:600;padding:0;margin-bottom:16px;}
-.notice-detail .nd-top{display:flex;align-items:center;gap:8px;margin-bottom:12px;}
-.notice-detail .nd-tag{padding:3px 8px;border-radius:6px;font-size:10px;font-weight:700;}
-.notice-detail .nd-date{font-size:11px;color:#9DA2AA;}
-.notice-detail .nd-title{font-size:16px;font-weight:800;color:#121314;margin-bottom:12px;line-height:1.4;}
-.notice-detail .nd-body{font-size:13px;color:#525860;line-height:1.7;}
-.notice-detail .nd-footer{margin-top:16px;padding-top:12px;border-top:1px solid #E6E9EF;font-size:11px;color:#9DA2AA;}
-
-/* ── Homework ── */
-.hw-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;}
-.hw-remain{font-size:12px;color:#9DA2AA;}
-.hw-progress{margin-bottom:16px;}
+/* Trend tabs */
+.trend-tabs{display:flex;gap:4px;margin-bottom:12px;}
+.trend-tab{padding:5px 12px;border-radius:7px;font-size:10px;font-weight:600;color:#9DA2AA;background:#F5F7FA;}
+.trend-tab.sel{background:#121314;color:#fff;}
+.trend-chart{padding:12px;}
+.trend-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.trend-row:last-child{margin-bottom:0;}
+.trend-label{font-size:10px;color:#9DA2AA;width:20px;text-align:right;font-family:monospace;}
+.trend-bar-wrap{flex:1;height:8px;background:#F5F7FA;border-radius:4px;overflow:hidden;}
+.trend-bar{height:100%;border-radius:4px;}
+.trend-val{font-size:10px;font-weight:700;font-family:monospace;width:38px;}
+/* Notice */
+.notice-list{display:flex;flex-direction:column;gap:7px;}
+.notice-item{background:#fff;border-radius:12px;padding:12px 14px;cursor:pointer;}
+.notice-top{display:flex;align-items:center;gap:5px;margin-bottom:5px;}
+.notice-tag{padding:2px 6px;border-radius:4px;font-size:8px;font-weight:700;}
+.notice-dot{width:5px;height:5px;border-radius:50%;background:#E25544;}
+.notice-date{font-size:9px;color:#9DA2AA;margin-left:auto;}
+.notice-title{font-size:12px;font-weight:700;color:#121314;line-height:1.3;}
+.notice-author{font-size:10px;color:#9DA2AA;margin-top:3px;}
+.notice-detail .back-btn{font-size:12px;color:#7D848C;font-weight:600;padding:0;margin-bottom:14px;}
+.notice-detail .nd-top{display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.notice-detail .nd-tag{padding:3px 7px;border-radius:5px;font-size:9px;font-weight:700;}
+.notice-detail .nd-date{font-size:10px;color:#9DA2AA;}
+.notice-detail .nd-title{font-size:15px;font-weight:800;color:#121314;margin-bottom:10px;line-height:1.4;}
+.notice-detail .nd-body{font-size:12px;color:#525860;line-height:1.7;}
+.notice-detail .nd-footer{margin-top:14px;padding-top:10px;border-top:1px solid #E6E9EF;font-size:10px;color:#9DA2AA;}
+/* Homework */
+.hw-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
+.hw-remain{font-size:11px;color:#9DA2AA;}
+.hw-progress{margin-bottom:14px;}
 .hw-prow{display:flex;justify-content:space-between;margin-bottom:4px;}
-.hw-prow .pl{font-size:10px;color:#7D848C;font-weight:600;}
-.hw-prow .pv{font-size:10px;color:#0084FF;font-weight:700;}
-.hw-track{height:6px;background:#E6E9EF;border-radius:3px;overflow:hidden;}
+.hw-prow .pl{font-size:9px;color:#7D848C;font-weight:600;}
+.hw-prow .pv{font-size:9px;color:#0084FF;font-weight:700;}
+.hw-track{height:5px;background:#E6E9EF;border-radius:3px;overflow:hidden;}
 .hw-fill{height:100%;background:linear-gradient(90deg,#1A8F58,#22A368);border-radius:3px;transition:width .4s;}
-.hw-section-title{font-size:11px;font-weight:700;color:#7D848C;margin-bottom:8px;}
+.hw-section-title{font-size:10px;font-weight:700;color:#7D848C;margin-bottom:7px;}
 .hw-section-title.done{color:#9DA2AA;}
-.hw-list{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
-.hw-list.done-list{gap:4px;margin-bottom:0;}
-.hw-item{background:#fff;border-radius:12px;padding:12px 14px;border:1px solid #E6E9EF;display:flex;align-items:center;gap:10px;}
-.hw-item.done{background:#F5F7FA;border:none;opacity:0.7;}
-.hw-check{width:22px;height:22px;border-radius:6px;border:2px solid #D6DAE2;cursor:pointer;flex-shrink:0;}
-.hw-check.checked{background:#22A368;border:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:12px;font-weight:800;}
+.hw-list{display:flex;flex-direction:column;gap:5px;margin-bottom:16px;}
+.hw-list.done-list{gap:3px;margin-bottom:0;}
+.hw-item{background:#fff;border-radius:10px;padding:10px 12px;border:1px solid #E6E9EF;display:flex;align-items:center;gap:8px;}
+.hw-item.done{background:#F5F7FA;border:none;opacity:0.65;}
+.hw-item.urgent-item{border-color:#E2554430;}
+.hw-check{width:20px;height:20px;border-radius:5px;border:2px solid #D6DAE2;cursor:pointer;flex-shrink:0;}
+.hw-check.checked{background:#22A368;border:none;display:flex;align-items:center;justify-content:center;color:#fff;font-size:11px;font-weight:800;}
 .hw-body{flex:1;min-width:0;}
-.hw-meta{display:flex;align-items:center;gap:6px;margin-bottom:3px;}
-.hw-sdot{width:6px;height:6px;border-radius:2px;}
-.hw-subj{font-size:10px;font-weight:600;}
-.hw-due{font-size:9px;color:#7D848C;font-weight:600;margin-left:auto;}
-.hw-title{font-size:12px;font-weight:600;color:#121314;}
-.hw-title.struck{color:#7D848C;text-decoration:line-through;}
-.hw-sub{font-size:10px;color:#9DA2AA;}
+.hw-meta{display:flex;align-items:center;gap:5px;margin-bottom:2px;}
+.hw-sdot{width:5px;height:5px;border-radius:2px;}
+.hw-subj{font-size:9px;font-weight:600;}
+.hw-due{font-size:8px;font-weight:700;margin-left:auto;padding:1px 5px;border-radius:3px;}
+.hw-due.urgent{background:#FEF1EE;color:#E25544;}
+.hw-due.normal{background:#F5F7FA;color:#7D848C;}
+.hw-title{font-size:11px;font-weight:600;color:#121314;}
+.hw-title.struck{color:#9DA2AA;text-decoration:line-through;}
+.hw-sub{font-size:9px;color:#9DA2AA;}
+/* More/Profile page */
+.profile-card{padding:20px;text-align:center;margin-bottom:14px;}
+.profile-avatar{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#005FA3,#0084FF);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:20px;font-weight:900;color:#fff;}
+.profile-name{font-size:16px;font-weight:800;color:#121314;}
+.profile-sub{font-size:11px;color:#9DA2AA;margin-top:2px;}
+.profile-stats{display:flex;gap:8px;margin-top:14px;}
+.profile-stat{flex:1;background:#F5F7FA;border-radius:10px;padding:10px 8px;text-align:center;}
+.profile-stat .ps-val{font-size:14px;font-weight:800;color:#121314;}
+.profile-stat .ps-lbl{font-size:8px;color:#9DA2AA;margin-top:2px;}
+/* Grade */
+.grade-card{padding:14px;margin-bottom:10px;}
+.grade-top{display:flex;justify-content:space-between;align-items:start;margin-bottom:10px;}
+.grade-exam{font-size:13px;font-weight:800;color:#121314;}
+.grade-date{font-size:9px;color:#9DA2AA;margin-top:2px;}
+.grade-rank{padding:3px 8px;border-radius:6px;font-size:10px;font-weight:800;}
+.grade-subjects{display:flex;gap:6px;margin-bottom:10px;}
+.grade-subj{flex:1;text-align:center;background:#F5F7FA;border-radius:8px;padding:8px 4px;}
+.grade-subj .gs-score{font-size:16px;font-weight:900;color:#121314;}
+.grade-subj .gs-name{font-size:8px;color:#9DA2AA;margin-bottom:2px;}
+.grade-subj .gs-grade{font-size:8px;font-weight:700;margin-top:2px;}
+.grade-total{display:flex;justify-content:space-between;font-size:10px;color:#9DA2AA;padding-top:8px;border-top:1px solid #F5F7FA;}
+/* Grade trend chart */
+.chart-area{padding:14px;}
+.chart-title{font-size:11px;font-weight:700;color:#7D848C;margin-bottom:10px;}
+.chart-svg{width:100%;}
+.chart-legend{display:flex;justify-content:center;gap:12px;margin-top:8px;}
+.chart-legend span{display:flex;align-items:center;gap:4px;font-size:9px;color:#7D848C;}
+.chart-legend .cl-dot{width:8px;height:3px;border-radius:2px;}
+/* Menu list */
+.menu-list{border-radius:14px;overflow:hidden;border:1px solid #E6E9EF;}
+.menu-item{display:flex;align-items:center;gap:10px;padding:13px 14px;background:#fff;border-bottom:1px solid #F5F7FA;}
+.menu-item:last-child{border:none;}
+.menu-icon{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:14px;}
+.menu-label{flex:1;font-size:12px;font-weight:600;color:#121314;}
+.menu-arrow{font-size:12px;color:#C0C5CC;}
+.menu-val{font-size:11px;color:#9DA2AA;font-weight:500;}
+/* Sub tabs */
+.sub-tabs{display:flex;gap:4px;margin-bottom:14px;padding-top:14px;}
+.sub-tab{padding:6px 14px;border-radius:8px;font-size:11px;font-weight:600;color:#9DA2AA;background:#fff;border:1px solid #E6E9EF;}
+.sub-tab.sel{background:#121314;color:#fff;border-color:#121314;}
 </style>
 </head>
 <body>
-
 <div class="top-bar">
   <span class="logo"><span class="w">WISE</span><span class="u">UP</span></span>
-  <div class="avatar">👤</div>
+  <div class="top-right">
+    <button class="noti-btn" onclick="switchTab('notice')">🔔<span class="dot"></span></button>
+    <div class="avatar-sm" onclick="switchTab('more')">SJ</div>
+  </div>
 </div>
-
 <div class="content">
-  <div id="tab-schedule" class="tab-content active"></div>
+  <div id="tab-home" class="tab-content active"></div>
+  <div id="tab-schedule" class="tab-content"></div>
   <div id="tab-attendance" class="tab-content"></div>
   <div id="tab-notice" class="tab-content"></div>
-  <div id="tab-homework" class="tab-content"></div>
+  <div id="tab-more" class="tab-content"></div>
 </div>
-
 <div class="bottom-nav">
-  <div class="nav-item active" data-tab="schedule"><div class="icon">📅</div><span class="label">시간표</span></div>
+  <div class="nav-item active" data-tab="home"><div class="icon">🏠</div><span class="label">홈</span></div>
+  <div class="nav-item" data-tab="schedule"><div class="icon">📅</div><span class="label">시간표</span></div>
   <div class="nav-item" data-tab="attendance"><div class="icon">📲</div><span class="label">출결</span></div>
-  <div class="nav-item" data-tab="notice"><div class="icon">📢<div class="badge">2</div></div><span class="label">공지</span></div>
-  <div class="nav-item" data-tab="homework"><div class="icon">📝</div><span class="label">숙제</span></div>
+  <div class="nav-item" data-tab="notice"><div class="icon">📢<div class="badge">3</div></div><span class="label">공지</span></div>
+  <div class="nav-item" data-tab="more"><div class="icon">👤</div><span class="label">더보기</span></div>
 </div>
 
 <script>
 var DAYS=["월","화","수","목","금","토","일"];
 var SUBJECTS={"영어":{color:"#E25544",bg:"#FEF1EE",gradient:"linear-gradient(135deg,#E25544,#EF7A6B)",label:"EN"},"수학":{color:"#0084FF",bg:"#EBF6FF",gradient:"linear-gradient(135deg,#005FA3,#0084FF)",label:"수"},"국어":{color:"#22A368",bg:"#EDFBF3",gradient:"linear-gradient(135deg,#1A8F58,#22A368)",label:"국"},"WISEUP":{color:"#005FA3",bg:"#D1E5FD",gradient:"linear-gradient(135deg,#005FA3,#3982CB)",label:"W"}};
 function getSt(n){var k=Object.keys(SUBJECTS);for(var i=0;i<k.length;i++){if(n.includes(k[i]))return SUBJECTS[k[i]];}return{color:"#7D848C",bg:"#F5F7FA",gradient:"linear-gradient(135deg,#7D848C,#9DA2AA)",label:"?"};}
-
 var CLASSES=[{day:0,name:"영어 동형모의고사",start:"17:30",end:"19:00",room:"1강의실"},{day:0,name:"수학 동형모의고사",start:"19:00",end:"20:30",room:"1강의실"},{day:0,name:"국어 동형모의고사",start:"20:30",end:"22:00",room:"1강의실"},{day:2,name:"수학",start:"17:30",end:"19:00",room:"1강의실",teacher:"허은솔"},{day:2,name:"수학",start:"19:00",end:"20:30",room:"1강의실",teacher:"정보강"},{day:2,name:"수학",start:"20:30",end:"22:00",room:"1강의실",teacher:"허은솔"},{day:3,name:"영어",start:"17:30",end:"19:00",room:"1강의실",teacher:"정주현"},{day:3,name:"수학",start:"20:30",end:"22:00",room:"1강의실",teacher:"김제민"},{day:4,name:"WISEUP",start:"19:00",end:"20:30",room:"1강의실",teacher:"장현명 원장님"},{day:4,name:"국어",start:"20:30",end:"22:00",room:"2강의실"},{day:5,name:"영어",start:"09:30",end:"11:00",room:"1강의실",teacher:"정주현"},{day:5,name:"수학",start:"13:30",end:"15:00",room:"1강의실",teacher:"정보강"},{day:5,name:"국어",start:"15:00",end:"16:30",room:"2강의실"},{day:6,name:"영어단어 끝장관리",start:"13:30",end:"15:00",room:"자습실"}];
 var SELF_STUDY=[{day:1,start:"09:00",end:"22:00"},{day:2,start:"09:00",end:"22:00"},{day:3,start:"09:00",end:"22:00"},{day:4,start:"09:00",end:"22:00"},{day:5,start:"09:00",end:"22:00"},{day:6,start:"09:00",end:"22:00"}];
 var NOTICES=[{id:1,type:"change",title:"3/5(수) 수학 휴강 안내",body:"허은솔 선생님 개인 사정으로 17:30 수학 수업이 휴강됩니다. 보강 일정은 추후 공지합니다.",author:"허은솔",date:"03/02",isNew:true},{id:2,type:"notice",title:"3월 모의고사 일정 변경",body:"3/8(토)에서 3/15(토)로 변경되었습니다. 시험 범위는 기존과 동일합니다.",author:"장현명 원장님",date:"03/01",isNew:true},{id:3,type:"notice",title:"자습실 이용 규칙 안내",body:"자습실 내 음식물 반입이 금지됩니다. 음료만 가능합니다.",author:"장현명 원장님",date:"02/28",isNew:false}];
 var homeworkData=[{id:1,subject:"영어",title:"단어장 Day 15~17 암기",due:"03/03",done:false},{id:2,subject:"수학",title:"수학의 정석 p.142~148",due:"03/05",done:false},{id:3,subject:"수학",title:"오답노트 정리 (2월 모의고사)",due:"03/04",done:true},{id:4,subject:"국어",title:"비문학 지문 3개 풀기",due:"03/06",done:false},{id:5,subject:"영어",title:"독해 워크북 Unit 8",due:"03/07",done:false}];
+var GRADES=[{exam:"3월 모의고사",date:"2026.03.04",total:48,scores:[{subj:"수학",score:96,grade:"1등급"},{subj:"영어",score:92,grade:"1등급"},{subj:"국어",score:99,grade:"1등급"}],rank:4,pct:8},{exam:"2월 단원평가",date:"2026.02.21",total:45,scores:[{subj:"수학",score:88,grade:"2등급"},{subj:"영어",score:95,grade:"1등급"},{subj:"국어",score:91,grade:"1등급"}],rank:5,pct:12},{exam:"1월 종합평가",date:"2026.01.28",total:50,scores:[{subj:"수학",score:85,grade:"2등급"},{subj:"영어",score:90,grade:"1등급"},{subj:"국어",score:87,grade:"2등급"}],rank:7,pct:15}];
 
 function t2m(t){var p=t.split(":");return parseInt(p[0])*60+parseInt(p[1]);}
 function fmtD(m){var h=Math.floor(m/60),r=m%60;if(h>0&&r>0)return h+"h "+r+"m";if(h>0)return h+"h";return r+"m";}
 function findSS(d){for(var i=0;i<SELF_STUDY.length;i++){if(SELF_STUDY[i].day===d)return SELF_STUDY[i];}return null;}
 function getStats(d){var ss=findSS(d),cls=CLASSES.filter(function(c){return c.day===d;}),ta=ss?t2m(ss.end)-t2m(ss.start):0,tc=0;cls.forEach(function(c){tc+=t2m(c.end)-t2m(c.start);});return{ta:ta,tc:tc,ts:Math.max(0,ta-tc),cc:cls.length};}
+var SIM_NOW=17*60+45; // 17:45 시뮬레이션
+var currentDay=0; // 월요일
+var checkedIn=true;
+var moreSubTab='grade';
+var noticeSubTab='notice';
+var noticeSelected=null;
+var timerSec=6420; // 1h47m
 
-var currentDay=(function(){var d=new Date().getDay();return d===0?6:d-1;})();
-var checkedIn=false;
-
-/* ═══ Navigation ═══ */
+/* ═══ Tab Switch ═══ */
+function switchTab(name){
+  document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
+  var ni=document.querySelector('[data-tab="'+name+'"]');
+  if(ni) ni.classList.add('active');
+  document.querySelectorAll('.tab-content').forEach(function(t){t.classList.remove('active');});
+  document.getElementById('tab-'+name).classList.add('active');
+}
 document.querySelectorAll('.nav-item').forEach(function(item){
   item.addEventListener('click',function(){
-    document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
-    item.classList.add('active');
-    document.querySelectorAll('.tab-content').forEach(function(t){t.classList.remove('active');});
-    document.getElementById('tab-'+item.dataset.tab).classList.add('active');
+    switchTab(item.dataset.tab);
   });
 });
 
-/* ═══ Schedule Tab ═══ */
+/* ═══ HOME ═══ */
+function renderHome(){
+  var cls=CLASSES.filter(function(c){return c.day===currentDay;}).sort(function(a,b){return t2m(a.start)-t2m(b.start);});
+  var nowCls=null,nextCls=null;
+  cls.forEach(function(c){
+    if(t2m(c.start)<=SIM_NOW&&SIM_NOW<t2m(c.end)) nowCls=c;
+    if(!nextCls&&t2m(c.start)>SIM_NOW) nextCls=c;
+  });
+  var pending=homeworkData.filter(function(h){return !h.done;});
+  var h='<div class="home-header"><div class="greeting">안녕, 김서준 👋</div><div class="greeting-sub">3월 6일 금요일 · 봄시즌</div></div>';
+  // Status card
+  h+='<div class="status-card">';
+  h+='<div class="status-top"><div class="status-pulse"></div><span class="status-label">'+(nowCls?'수업 중 · '+nowCls.name:'자습 중')+'</span></div>';
+  if(nowCls){h+='<div class="status-detail">'+nowCls.start+'–'+nowCls.end+' · '+(nowCls.teacher||'')+' · '+nowCls.room+'</div>';}
+  else{h+='<div class="status-detail">등원 09:00 · 오늘 '+fmtD(timerSec/60|0)+'째 공부중</div>';}
+  h+='<div class="status-stats" style="margin-top:12px"><div class="status-stat"><div class="sv">'+fmtD(timerSec/60|0)+'</div><div class="sl">순공부시간</div></div>';
+  h+='<div class="status-stat"><div class="sv">'+cls.length+'</div><div class="sl">오늘 수업</div></div>';
+  h+='<div class="status-stat"><div class="sv">'+pending.length+'</div><div class="sl">남은 숙제</div></div></div></div>';
+  // Next class
+  if(nextCls){
+    var mins=t2m(nextCls.start)-SIM_NOW;
+    var st=getSt(nextCls.name);
+    h+='<div class="home-section"><div class="section-header"><span style="font-size:13px;font-weight:700;color:#121314">다음 수업</span></div>';
+    h+='<div class="card"><div class="next-class"><div class="countdown">'+mins+'<span style="font-size:11px;color:#9DA2AA">분 후</span></div>';
+    h+='<div class="nc-info"><div class="nc-name">'+nextCls.name+'</div><div class="nc-meta">'+(nextCls.teacher?nextCls.teacher+' · ':'')+nextCls.start+'–'+nextCls.end+' · '+nextCls.room+'</div></div></div></div></div>';
+  }
+  // New notices
+  var newN=NOTICES.filter(function(n){return n.isNew;});
+  if(newN.length>0){
+    h+='<div class="home-section"><div class="section-header"><span style="font-size:13px;font-weight:700;color:#121314">새 공지</span><button class="more" onclick="switchTab(\'notice\')">전체보기</button></div>';
+    h+='<div class="card" style="overflow:hidden">';
+    newN.forEach(function(n){
+      var tm={change:{color:"#E25544",bg:"#FEF1EE",label:"변경"},notice:{color:"#0084FF",bg:"#EBF6FF",label:"공지"}}[n.type];
+      h+='<div style="padding:10px 14px;border-bottom:1px solid #F5F7FA;display:flex;align-items:center;gap:8px" onclick="noticeSelected='+n.id+';switchTab(\'notice\');renderNotice();">';
+      h+='<span class="notice-tag" style="background:'+tm.bg+';color:'+tm.color+';flex-shrink:0">'+tm.label+'</span>';
+      h+='<span style="font-size:11px;font-weight:600;color:#121314;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+n.title+'</span>';
+      h+='<span class="notice-dot"></span></div>';
+    });
+    h+='</div></div>';
+  }
+  // Urgent homework
+  if(pending.length>0){
+    h+='<div class="home-section"><div class="section-header"><span style="font-size:13px;font-weight:700;color:#121314">숙제</span><span style="font-size:10px;color:#E25544;font-weight:700">'+pending.length+'개 남음</span></div>';
+    h+='<div class="card" style="overflow:hidden">';
+    pending.slice(0,3).forEach(function(hw){
+      var st=getSt(hw.subject), isUrgent=hw.due<='03/04';
+      h+='<div class="mini-hw"><div class="hw-dot" style="background:'+st.color+'"></div>';
+      h+='<span class="hw-t">'+hw.title+'</span>';
+      h+='<span class="hw-d '+(isUrgent?'urgent':'normal')+'">'+hw.due+'</span></div>';
+    });
+    h+='</div></div>';
+  }
+  document.getElementById('tab-home').innerHTML=h;
+}
+
+/* ═══ SCHEDULE ═══ */
 function renderSchedule(){
   var cls=CLASSES.filter(function(c){return c.day===currentDay;}).sort(function(a,b){return t2m(a.start)-t2m(b.start);});
-  var ss=findSS(currentDay), stats=getStats(currentDay);
-  var h='<div class="section-title">시간표</div>';
-  
-  // Day tabs
+  var ss=findSS(currentDay),stats=getStats(currentDay);
+  var isToday=currentDay===0; // 시뮬레이션: 월요일=오늘
+  var h='<div style="padding-top:14px"><div class="section-title">시간표</div></div>';
   h+='<div class="day-tabs">';
-  for(var i=0;i<7;i++){
-    var sel=i===currentDay, st=getStats(i), extra=i===5?' sat':i===6?' sun':'';
+  for(var i=0;i<7;i++){var sel=i===currentDay,st=getStats(i),extra=i===5?' sat':i===6?' sun':'';
     h+='<button class="day-tab'+(sel?' sel':'')+extra+'" onclick="selectDay('+i+')">';
     h+='<span>'+DAYS[i]+'</span>';
-    if(st.cc>0) h+='<div class="cnt">'+st.cc+'수업</div>';
-    h+='</button>';
-  }
+    if(st.cc>0)h+='<div class="cnt">'+st.cc+'수업</div>';h+='</button>';}
   h+='</div>';
-  
-  // Commute & study time info
   if(ss){
-    h+='<div class="attend-row">';
-    h+='<div class="attend-card"><div class="lbl">등원</div><div class="val">'+ss.start+' <span class="arr">→</span> '+ss.end+'</div></div>';
-    h+='<div class="study-card"><div class="lbl">순공부</div><div class="val">'+fmtD(stats.ta)+'</div></div>';
-    h+='</div>';
-    if(stats.ta>0){
-      h+='<div class="time-bar">';
-      if(stats.tc>0) h+='<div class="cls" style="flex:'+stats.tc+'"></div>';
-      if(stats.ts>0) h+='<div class="self" style="flex:'+stats.ts+'"></div>';
-      h+='</div>';
-      h+='<div class="time-legend">';
-      if(stats.tc>0) h+='<span><div class="dot" style="background:#0084FF"></div>수업 '+fmtD(stats.tc)+'</span>';
-      if(stats.ts>0) h+='<span><div class="dot" style="background:#C0C5CC"></div>자습 '+fmtD(stats.ts)+'</span>';
-      h+='</div>';
-    }
+    h+='<div class="attend-row"><div class="attend-card"><div class="lbl">등원</div><div class="val">'+ss.start+' <span class="arr">→</span> '+ss.end+'</div></div>';
+    h+='<div class="study-card"><div class="lbl">순공부</div><div class="val">'+fmtD(stats.ta)+'</div></div></div>';
+    if(stats.ta>0){h+='<div class="time-bar">';if(stats.tc>0)h+='<div class="cls" style="flex:'+stats.tc+'"></div>';if(stats.ts>0)h+='<div class="self" style="flex:'+stats.ts+'"></div>';h+='</div>';
+    h+='<div class="time-legend">';if(stats.tc>0)h+='<span><div class="dot" style="background:#0084FF"></div>수업 '+fmtD(stats.tc)+'</span>';if(stats.ts>0)h+='<span><div class="dot" style="background:#C0C5CC"></div>자습 '+fmtD(stats.ts)+'</span>';h+='</div>';}
   }
-  
-  // Class list with gap labels
-  if(cls.length===0){
-    h+='<div class="empty-msg">'+(ss?'오늘은 자습 Day 📖':'스케줄 없음')+'</div>';
-  } else {
+  if(cls.length===0){h+='<div class="empty-msg">'+(ss?'오늘은 자습 Day 📖':'스케줄 없음')+'</div>';}
+  else{
     h+='<div class="class-list">';
-    for(var j=0;j<cls.length;j++){
-      var ev=cls[j], st=getSt(ev.name), dur=t2m(ev.end)-t2m(ev.start);
+    for(var j=0;j<cls.length;j++){var ev=cls[j],st=getSt(ev.name),dur=t2m(ev.end)-t2m(ev.start);
       var gap=j>0?t2m(ev.start)-t2m(cls[j-1].end):0;
-      if(gap>0) h+='<div class="gap-label">··· 자습 '+fmtD(gap)+' ···</div>';
-      h+='<div class="class-card">';
+      var isNow=isToday&&t2m(ev.start)<=SIM_NOW&&SIM_NOW<t2m(ev.end);
+      var isDone=isToday&&t2m(ev.end)<=SIM_NOW;
+      if(gap>0)h+='<div class="gap-label">··· 자습 '+fmtD(gap)+' ···</div>';
+      if(isNow)h+='<div class="now-indicator"><div class="pulse"></div><span class="txt">지금 진행 중</span></div>';
+      h+='<div class="class-card'+(isNow?' now':'')+(isDone?' done':'')+'">';
       h+='<div class="class-top"><div class="class-info">';
       h+='<div class="sbadge" style="background:'+st.gradient+'">'+st.label+'</div>';
       h+='<div><div class="class-name">'+ev.name+'</div>';
-      if(ev.teacher) h+='<div class="class-teacher">'+ev.teacher+'</div>';
-      h+='</div></div>';
+      if(ev.teacher)h+='<div class="class-teacher">'+ev.teacher+'</div>';
+      h+='</div></div><div class="class-right">';
       h+='<div class="class-dur" style="background:'+st.bg+';color:'+st.color+'">'+fmtD(dur)+'</div>';
-      h+='</div>';
-      h+='<div class="class-meta"><span class="time">⏰ '+ev.start+'–'+ev.end+'</span><span>📍 '+ev.room+'</span></div>';
-      h+='</div>';
-    }
-    h+='</div>';
-  }
+      if(isDone)h+='<div class="class-status done-s">출석 ✓</div>';
+      else if(isNow)h+='<div class="class-status now-s">진행중</div>';
+      h+='</div></div>';
+      h+='<div class="class-meta"><span class="time">⏰ '+ev.start+'–'+ev.end+'</span><span>📍 '+ev.room+'</span></div></div>';}
+    h+='</div>';}
   document.getElementById('tab-schedule').innerHTML=h;
 }
 function selectDay(d){currentDay=d;renderSchedule();}
 
-/* ═══ Attendance Tab ═══ */
+/* ═══ ATTENDANCE ═══ */
 function renderAttendance(){
-  var wr=[{d:"월",h:4.5},{d:"화",h:13},{d:"수",h:0},{d:"목",h:0},{d:"금",h:0},{d:"토",h:0},{d:"일",h:0}];
+  var wr=[{d:"월",h:4.5},{d:"화",h:13},{d:"수",h:12.5},{d:"목",h:11},{d:"금",h:0},{d:"토",h:0},{d:"일",h:0}];
   var tw=0;wr.forEach(function(r){tw+=r.h;});
-  var h='<div class="section-title">출결</div>';
-  h+='<div class="card qr-area">';
-  h+='<div class="qr-msg">'+(checkedIn?'학원에서 공부 중':'QR 태그를 찍어 등원하세요')+'</div>';
+  var h='<div style="padding-top:14px"><div class="section-title">출결</div></div>';
+  h+='<div class="card qr-area"><div class="qr-msg">'+(checkedIn?'학원에서 공부 중':'QR 태그를 찍어 등원하세요')+'</div>';
   h+='<div class="qr-btn '+(checkedIn?'on':'off')+'" onclick="toggleCheckIn()">';
-  if(checkedIn) h+='<div class="timer-lbl">공부 중</div><div class="timer-val" id="timerVal">0:00</div>';
+  if(checkedIn){var m=timerSec/60|0,s=timerSec%60;h+='<div class="timer-lbl">공부 중</div><div class="timer-val" id="timerVal">'+(m/60|0)+':'+((m%60)<10?'0':'')+(m%60)+'</div>';}
   else h+='<div class="emoji">📲</div><div class="hint">터치로 테스트</div>';
   h+='</div>';
-  if(checkedIn) h+='<button class="checkout-btn" onclick="toggleCheckIn()">하원하기</button>';
+  if(checkedIn)h+='<button class="checkout-btn" onclick="toggleCheckIn()">하원하기</button>';
   h+='</div>';
-  
-  h+='<div class="card" style="padding:16px">';
-  h+='<div class="week-row"><span style="font-size:13px;font-weight:700;color:#121314">이번 주 출결</span><span class="week-total">'+tw+'h</span></div>';
+  // Today timeline
+  h+='<div class="card timeline"><div class="tl-title">오늘 입퇴실 기록</div>';
+  h+='<div class="tl-item"><div class="tl-dot in"></div><div class="tl-body"><div class="tl-time">09:02</div><div class="tl-desc">등원 · QR 체크인</div></div></div>';
+  h+='<div class="tl-item"><div class="tl-dot out"></div><div class="tl-body"><div class="tl-time">12:15</div><div class="tl-desc">외출 · 점심식사</div></div></div>';
+  h+='<div class="tl-item"><div class="tl-dot in"></div><div class="tl-body"><div class="tl-time">12:58</div><div class="tl-desc">복귀</div></div></div>';
+  h+='<div class="tl-item"><div class="tl-dot out"></div><div class="tl-body"><div class="tl-time">15:30</div><div class="tl-desc">외출 · 간식</div></div></div>';
+  h+='<div class="tl-item"><div class="tl-dot in"></div><div class="tl-body"><div class="tl-time">15:45</div><div class="tl-desc">복귀 · 현재 공부중</div></div></div>';
+  h+='</div>';
+  // Weekly bar
+  h+='<div class="card card-p" style="margin-top:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:12px;font-weight:700;color:#121314">이번 주 출결</span><span class="week-total" style="font-size:11px;font-weight:800;color:#0084FF">'+tw+'h</span></div>';
   h+='<div class="bar-chart">';
-  wr.forEach(function(r){
-    var barH=r.h>0?Math.max(8,(r.h/13)*80):4;
-    h+='<div class="bar-col"><span class="bar-val">'+(r.h>0?r.h+'h':'')+'</span><div class="bar '+(r.h>0?'filled':'empty')+'" style="height:'+barH+'px"></div><span class="bar-day'+(r.h>0?' active':'')+'">'+ r.d+'</span></div>';
-  });
+  wr.forEach(function(r){var barH=r.h>0?Math.max(8,(r.h/13)*80):4;
+    h+='<div class="bar-col"><span class="bar-val">'+(r.h>0?r.h+'h':'')+'</span><div class="bar '+(r.h>0?'filled':'empty')+'" style="height:'+barH+'px"></div><span class="bar-day'+(r.h>0?' active':'')+'">'+ r.d+'</span></div>';});
   h+='</div>';
-  h+='<div class="goal-box"><div class="goal-row"><span class="gl">주간 목표 60h</span><span class="gp">'+Math.round(tw/60*100)+'%</span></div>';
-  h+='<div class="goal-track"><div class="goal-fill" style="width:'+Math.min(100,tw/60*100)+'%"></div></div></div>';
-  h+='</div>';
+  h+='<div class="goal-box"><div class="goal-row"><span class="gl">주간 목표 60h</span><span class="gp">'+Math.round(tw/60*100)+'%</span></div><div class="goal-track"><div class="goal-fill" style="width:'+Math.min(100,tw/60*100)+'%"></div></div></div></div>';
+  // Trend
+  h+='<div class="card" style="margin-top:10px"><div class="trend-chart">';
+  h+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-size:12px;font-weight:700;color:#121314">공부시간 추이</span>';
+  h+='<div class="trend-tabs"><button class="trend-tab sel" onclick="this.parentElement.querySelectorAll(\'.trend-tab\').forEach(t=>t.classList.remove(\'sel\'));this.classList.add(\'sel\')">일</button><button class="trend-tab" onclick="this.parentElement.querySelectorAll(\'.trend-tab\').forEach(t=>t.classList.remove(\'sel\'));this.classList.add(\'sel\')">주</button><button class="trend-tab" onclick="this.parentElement.querySelectorAll(\'.trend-tab\').forEach(t=>t.classList.remove(\'sel\'));this.classList.add(\'sel\')">월</button></div></div>';
+  var days7=[{l:"2/28",v:11.5},{l:"3/1",v:12},{l:"3/2",v:10},{l:"3/3",v:13},{l:"3/4",v:12.5},{l:"3/5",v:11},{l:"3/6",v:4.5}];
+  days7.forEach(function(d){
+    var pct=Math.round(d.v/13*100);
+    h+='<div class="trend-row"><span class="trend-label">'+d.l+'</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:'+pct+'%;background:linear-gradient(90deg,#005FA3,#0084FF)"></div></div><span class="trend-val" style="color:'+(d.v>=10?'#0084FF':'#9DA2AA')+'">'+d.v+'h</span></div>';});
+  h+='</div></div>';
   document.getElementById('tab-attendance').innerHTML=h;
-  if(checkedIn) startTimer();
 }
+function toggleCheckIn(){checkedIn=!checkedIn;renderAttendance();}
 
-var timerSec=0,timerInterval=null;
-function toggleCheckIn(){
-  checkedIn=!checkedIn;
-  if(!checkedIn){clearInterval(timerInterval);timerSec=0;}
-  renderAttendance();
-}
-function startTimer(){
-  clearInterval(timerInterval);
-  timerInterval=setInterval(function(){
-    timerSec++;
-    var m=Math.floor(timerSec/60),s=timerSec%60;
-    var el=document.getElementById('timerVal');
-    if(el) el.textContent=m+':'+(s<10?'0':'')+s;
-  },1000);
-}
-
-/* ═══ Notice Tab ═══ */
-var noticeSelected=null;
+/* ═══ NOTICE (공지+숙제) ═══ */
 function renderNotice(){
+  var h='<div class="sub-tabs">';
+  h+='<button class="sub-tab'+(noticeSubTab==='notice'?' sel':'')+'" onclick="noticeSubTab=\'notice\';noticeSelected=null;renderNotice()">공지사항</button>';
+  h+='<button class="sub-tab'+(noticeSubTab==='homework'?' sel':'')+'" onclick="noticeSubTab=\'homework\';renderNotice()">숙제</button></div>';
+  if(noticeSubTab==='notice') h+=renderNoticeList();
+  else h+=renderHomework();
+  document.getElementById('tab-notice').innerHTML=h;
+}
+function renderNoticeList(){
   var typeMap={change:{color:"#E25544",bg:"#FEF1EE",label:"변경"},notice:{color:"#0084FF",bg:"#EBF6FF",label:"공지"}};
   if(noticeSelected!==null){
     var n=null;NOTICES.forEach(function(x){if(x.id===noticeSelected)n=x;});var ts=typeMap[n.type];
-    var h='<div class="notice-detail"><button class="back-btn" onclick="noticeBack()">← 목록으로</button>';
-    h+='<div class="card" style="padding:20px"><div class="nd-top"><span class="nd-tag" style="background:'+ts.bg+';color:'+ts.color+'">'+ts.label+'</span><span class="nd-date">'+n.date+'</span></div>';
-    h+='<div class="nd-title">'+n.title+'</div><div class="nd-body">'+n.body+'</div>';
-    h+='<div class="nd-footer">작성자: '+n.author+'</div></div></div>';
-    document.getElementById('tab-notice').innerHTML=h;return;
-  }
-  var h='<div class="section-title">공지사항</div><div class="notice-list">';
-  NOTICES.forEach(function(n){
-    var ts=typeMap[n.type];
-    h+='<div class="notice-item" style="border:1px solid '+(n.isNew?ts.color+'30':'#E6E9EF')+'" onclick="openNotice('+n.id+')">';
+    return '<div class="notice-detail"><button class="back-btn" onclick="noticeSelected=null;renderNotice()">← 목록으로</button><div class="card" style="padding:18px"><div class="nd-top"><span class="nd-tag" style="background:'+ts.bg+';color:'+ts.color+'">'+ts.label+'</span><span class="nd-date">'+n.date+'</span></div><div class="nd-title">'+n.title+'</div><div class="nd-body">'+n.body+'</div><div class="nd-footer">작성자: '+n.author+'</div></div></div>';}
+  var h='<div class="notice-list">';
+  NOTICES.forEach(function(n){var ts=typeMap[n.type];
+    h+='<div class="notice-item" style="border:1px solid '+(n.isNew?ts.color+'30':'#E6E9EF')+'" onclick="noticeSelected='+n.id+';renderNotice()">';
     h+='<div class="notice-top"><span class="notice-tag" style="background:'+ts.bg+';color:'+ts.color+'">'+ts.label+'</span>';
-    if(n.isNew) h+='<span class="notice-dot"></span>';
-    h+='<span class="notice-date">'+n.date+'</span></div>';
-    h+='<div class="notice-title">'+n.title+'</div>';
-    h+='<div class="notice-author">'+n.author+'</div></div>';
-  });
-  h+='</div>';
-  document.getElementById('tab-notice').innerHTML=h;
+    if(n.isNew)h+='<span class="notice-dot"></span>';h+='<span class="notice-date">'+n.date+'</span></div>';
+    h+='<div class="notice-title">'+n.title+'</div><div class="notice-author">'+n.author+'</div></div>';});
+  return h+'</div>';
 }
-function openNotice(id){noticeSelected=id;renderNotice();}
-function noticeBack(){noticeSelected=null;renderNotice();}
-
-/* ═══ Homework Tab ═══ */
 function renderHomework(){
   var pending=homeworkData.filter(function(h){return !h.done;}),done=homeworkData.filter(function(h){return h.done;});
   var pct=Math.round(done.length/homeworkData.length*100);
-  var h='<div class="hw-header"><span class="section-title" style="margin:0">숙제</span><span class="hw-remain">'+pending.length+'개 남음</span></div>';
+  var h='<div class="hw-header"><span style="font-size:15px;font-weight:800;color:#121314">숙제</span><span class="hw-remain">'+pending.length+'개 남음</span></div>';
   h+='<div class="hw-progress"><div class="hw-prow"><span class="pl">완료율</span><span class="pv">'+pct+'%</span></div><div class="hw-track"><div class="hw-fill" style="width:'+pct+'%"></div></div></div>';
-  if(pending.length>0){
-    h+='<div class="hw-section-title">해야 할 것</div><div class="hw-list">';
-    pending.forEach(function(hw){
-      var st=getSt(hw.subject);
-      h+='<div class="hw-item"><div class="hw-check" onclick="toggleHw('+hw.id+')"></div><div class="hw-body">';
-      h+='<div class="hw-meta"><div class="hw-sdot" style="background:'+st.color+'"></div><span class="hw-subj" style="color:'+st.color+'">'+hw.subject+'</span><span class="hw-due">'+hw.due+'까지</span></div>';
-      h+='<div class="hw-title">'+hw.title+'</div></div></div>';
-    });
-    h+='</div>';
-  }
-  if(done.length>0){
-    h+='<div class="hw-section-title done">완료 ✓</div><div class="hw-list done-list">';
-    done.forEach(function(hw){
-      h+='<div class="hw-item done"><div class="hw-check checked" onclick="toggleHw('+hw.id+')">✓</div><div class="hw-body">';
-      h+='<div class="hw-title struck">'+hw.title+'</div><div class="hw-sub">'+hw.subject+'</div></div></div>';
-    });
-    h+='</div>';
-  }
-  document.getElementById('tab-homework').innerHTML=h;
+  if(pending.length>0){h+='<div class="hw-section-title">해야 할 것</div><div class="hw-list">';
+    pending.forEach(function(hw){var st=getSt(hw.subject),isUrg=hw.due<='03/04';
+      h+='<div class="hw-item'+(isUrg?' urgent-item':'')+'">';
+      h+='<div class="hw-check" onclick="toggleHw('+hw.id+')"></div><div class="hw-body">';
+      h+='<div class="hw-meta"><div class="hw-sdot" style="background:'+st.color+'"></div><span class="hw-subj" style="color:'+st.color+'">'+hw.subject+'</span><span class="hw-due '+(isUrg?'urgent':'normal')+'">'+hw.due+(isUrg?' ⚠':'')+'</span></div>';
+      h+='<div class="hw-title">'+hw.title+'</div></div></div>';});
+    h+='</div>';}
+  if(done.length>0){h+='<div class="hw-section-title done">완료 ✓</div><div class="hw-list done-list">';
+    done.forEach(function(hw){h+='<div class="hw-item done"><div class="hw-check checked" onclick="toggleHw('+hw.id+')">✓</div><div class="hw-body"><div class="hw-title struck">'+hw.title+'</div><div class="hw-sub">'+hw.subject+'</div></div></div>';});
+    h+='</div>';}
+  return h;
 }
-function toggleHw(id){homeworkData.forEach(function(h){if(h.id===id)h.done=!h.done;});renderHomework();}
+function toggleHw(id){homeworkData.forEach(function(h){if(h.id===id)h.done=!h.done;});renderNotice();}
 
-/* ═══ Init ═══ */
-renderSchedule();renderAttendance();renderNotice();renderHomework();
+/* ═══ MORE (성적+프로필) ═══ */
+function renderMore(){
+  var h='<div class="sub-tabs"><button class="sub-tab'+(moreSubTab==='grade'?' sel':'')+'" onclick="moreSubTab=\'grade\';renderMore()">성적</button>';
+  h+='<button class="sub-tab'+(moreSubTab==='profile'?' sel':'')+'" onclick="moreSubTab=\'profile\';renderMore()">프로필</button></div>';
+  if(moreSubTab==='grade') h+=renderGrade();
+  else h+=renderProfile();
+  document.getElementById('tab-more').innerHTML=h;
+}
+function renderGrade(){
+  var h='';
+  // Trend chart (SVG)
+  h+='<div class="card chart-area"><div class="chart-title">과목별 점수 추이</div>';
+  h+='<svg class="chart-svg" viewBox="0 0 300 120" style="overflow:visible">';
+  // Grid
+  [100,90,80].forEach(function(v,i){var y=10+i*40;
+    h+='<line x1="30" y1="'+y+'" x2="280" y2="'+y+'" stroke="#E6E9EF" stroke-width="0.5"/>';
+    h+='<text x="25" y="'+(y+3)+'" text-anchor="end" fill="#C0C5CC" font-size="8" font-family="monospace">'+v+'</text>';});
+  var labels=["1월","2월","3월"];
+  labels.forEach(function(l,i){var x=80+i*100;
+    h+='<text x="'+x+'" y="118" text-anchor="middle" fill="#9DA2AA" font-size="8" font-weight="600">'+l+'</text>';});
+  // Lines
+  var mathS=[85,88,96],engS=[90,95,92],korS=[87,91,99];
+  function yPos(s){return 10+(100-s)*4;}
+  function drawLine(scores,color){
+    var pts=scores.map(function(s,i){return (80+i*100)+','+yPos(s);}).join(' ');
+    h+='<polyline points="'+pts+'" fill="none" stroke="'+color+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+    scores.forEach(function(s,i){h+='<circle cx="'+(80+i*100)+'" cy="'+yPos(s)+'" r="3.5" fill="'+color+'" stroke="#fff" stroke-width="1.5"/>';});
+    h+='<text x="'+(80+(scores.length-1)*100+8)+'" y="'+(yPos(scores[scores.length-1])+3)+'" fill="'+color+'" font-size="9" font-weight="700">'+scores[scores.length-1]+'</text>';}
+  drawLine(mathS,'#0084FF');drawLine(engS,'#E25544');drawLine(korS,'#22A368');
+  h+='</svg>';
+  h+='<div class="chart-legend"><span><div class="cl-dot" style="background:#0084FF"></div>수학</span><span><div class="cl-dot" style="background:#E25544"></div>영어</span><span><div class="cl-dot" style="background:#22A368"></div>국어</span></div></div>';
+  // Exam cards
+  GRADES.forEach(function(g){
+    var totalScore=0,totalMax=g.scores.length*100;
+    g.scores.forEach(function(s){totalScore+=s.score;});
+    var avg=(totalScore/g.scores.length).toFixed(1);
+    h+='<div class="card grade-card" style="margin-top:10px"><div class="grade-top"><div><div class="grade-exam">'+g.exam+'</div><div class="grade-date">'+g.date+' · 전체 응시 '+g.total+'명</div></div>';
+    h+='<div class="grade-rank" style="background:#EBF6FF;color:#0084FF">상위 '+g.pct+'%</div></div>';
+    h+='<div class="grade-subjects">';
+    g.scores.forEach(function(s){var st=SUBJECTS[s.subj]||{color:'#7D848C'};
+      h+='<div class="grade-subj"><div class="gs-name">'+s.subj+'</div><div class="gs-score">'+s.score+'</div><div class="gs-grade" style="color:'+st.color+'">'+s.grade+'</div></div>';});
+    h+='</div><div class="grade-total"><span>총점 '+totalScore+'/'+totalMax+' · 평균 '+avg+'</span><span>'+g.rank+'위</span></div></div>';});
+  return h;
+}
+function renderProfile(){
+  var h='<div class="card profile-card"><div class="profile-avatar">SJ</div>';
+  h+='<div class="profile-name">김서준</div><div class="profile-sub">고등학교 2학년 · 이과</div>';
+  h+='<div class="profile-stats"><div class="profile-stat"><div class="ps-val">메가스터디</div><div class="ps-lbl">학원</div></div>';
+  h+='<div class="profile-stat"><div class="ps-val">2026 봄</div><div class="ps-lbl">시즌</div></div>';
+  h+='<div class="profile-stat"><div class="ps-val">A-12</div><div class="ps-lbl">좌석</div></div></div></div>';
+  // Menu
+  h+='<div class="menu-list">';
+  h+='<div class="menu-item"><div class="menu-icon" style="background:#EBF6FF">📚</div><span class="menu-label">수강 중인 강좌</span><span class="menu-val">5개</span><span class="menu-arrow">›</span></div>';
+  h+='<div class="menu-item"><div class="menu-icon" style="background:#EDFBF3">💺</div><span class="menu-label">자습실 배정 좌석</span><span class="menu-val">A자습실 12번</span><span class="menu-arrow">›</span></div>';
+  h+='<div class="menu-item"><div class="menu-icon" style="background:#FEF1EE">📊</div><span class="menu-label">출결 통계</span><span class="menu-val">출석률 96%</span><span class="menu-arrow">›</span></div>';
+  h+='<div class="menu-item"><div class="menu-icon" style="background:#F3E8FF">🔔</div><span class="menu-label">알림 설정</span><span class="menu-arrow">›</span></div>';
+  h+='<div class="menu-item"><div class="menu-icon" style="background:#F5F7FA">❓</div><span class="menu-label">도움말</span><span class="menu-arrow">›</span></div>';
+  h+='<div class="menu-item" onclick="alert(\'로그아웃\')"><div class="menu-icon" style="background:#F5F7FA">🚪</div><span class="menu-label" style="color:#E25544">로그아웃</span><span class="menu-arrow">›</span></div>';
+  h+='</div>';
+  return h;
+}
+
+/* ═══ INIT ═══ */
+renderHome();renderSchedule();renderAttendance();renderNotice();renderMore();
 </script>
 </body>
 </html>
