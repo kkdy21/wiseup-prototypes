@@ -30,7 +30,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .section-header .more{font-size:11px;color:#0084FF;font-weight:600;}
 .card{background:#fff;border-radius:14px;border:1px solid #E6E9EF;}
 .card-p{padding:14px;}
-/* Day Tabs */
 .day-tabs{display:flex;gap:3px;margin-bottom:12px;}
 .day-tab{padding:6px 0;flex:1;min-width:0;border-radius:9px;font-size:12px;font-weight:500;background:#fff;color:#9DA2AA;display:flex;flex-direction:column;align-items:center;gap:1px;box-shadow:0 1px 2px rgba(0,0,0,0.04);transition:all .15s;}
 .day-tab.sel{background:#0084FF;color:#fff;font-weight:800;box-shadow:0 2px 8px rgba(0,132,255,0.25);}
@@ -38,7 +37,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .day-tab.sel.sat,.day-tab.sel.sun{color:#fff;}
 .day-tab .cnt{font-size:7px;font-weight:700;font-family:monospace;color:#C0C5CC;}
 .day-tab.sel .cnt{color:rgba(255,255,255,0.6);}
-/* Schedule cards */
 .attend-row{display:flex;gap:6px;margin-bottom:10px;}
 .attend-card{flex:1;padding:8px 10px;background:#fff;border-radius:10px;border:1px solid #D6DAE2;}
 .attend-card .lbl{font-size:8px;font-weight:600;color:#9DA2AA;margin-bottom:1px;}
@@ -53,7 +51,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .time-legend{display:flex;gap:8px;margin-bottom:14px;}
 .time-legend span{display:flex;align-items:center;gap:3px;font-size:8px;color:#7D848C;}
 .time-legend .dot{width:4px;height:4px;border-radius:2px;}
-/* Class list */
 .class-list{display:flex;flex-direction:column;gap:5px;}
 .gap-label{text-align:center;font-size:9px;color:#9DA2AA;padding:3px 0;}
 .class-card{background:#fff;border-radius:11px;padding:10px 12px;border:1px solid #E6E9EF;transition:all .15s;}
@@ -69,7 +66,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .class-status{font-size:8px;font-weight:700;padding:2px 6px;border-radius:4px;}
 .class-status.done-s{background:#EDFBF3;color:#22A368;}
 .class-status.now-s{background:#EBF6FF;color:#0084FF;}
-.class-status.late-s{background:#FEF1EE;color:#E25544;}
 .class-meta{display:flex;gap:10px;padding-left:35px;}
 .class-meta span{font-size:9px;color:#9DA2AA;}
 .class-meta .time{font-family:monospace;}
@@ -78,7 +74,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .now-indicator .txt{font-size:10px;font-weight:700;color:#0084FF;}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,132,255,0.4);}50%{opacity:0.7;box-shadow:0 0 0 6px rgba(0,132,255,0);}}
 .empty-msg{text-align:center;padding:32px 20px;color:#C0C5CC;font-size:12px;}
-/* Home specific */
 .home-header{padding:20px 0 16px;}
 .greeting{font-size:14px;font-weight:800;color:#121314;margin-bottom:2px;}
 .greeting-sub{font-size:11px;color:#9DA2AA;}
@@ -103,6 +98,34 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .mini-hw .hw-d{font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;}
 .mini-hw .hw-d.urgent{background:#FEF1EE;color:#E25544;}
 .mini-hw .hw-d.normal{background:#F5F7FA;color:#7D848C;}
+/* Motivation */
+.moti-card{background:linear-gradient(135deg,#1B1F26 0%,#2D3239 100%);border-radius:14px;padding:14px 16px;margin-bottom:14px;color:#fff;position:relative;overflow:hidden;}
+.moti-card::before{content:'';position:absolute;top:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:rgba(255,215,0,0.08);}
+.moti-quote{font-size:11px;font-weight:600;line-height:1.6;margin-bottom:10px;color:rgba(255,255,255,0.9);}
+.moti-source{font-size:9px;color:rgba(255,255,255,0.4);margin-bottom:12px;}
+.moti-compare{background:rgba(255,255,255,0.08);border-radius:10px;padding:10px 12px;}
+.moti-compare-title{font-size:9px;color:rgba(255,255,255,0.5);margin-bottom:8px;font-weight:600;}
+.moti-bar-wrap{position:relative;height:8px;background:rgba(255,255,255,0.1);border-radius:4px;margin-bottom:4px;}
+.moti-bar-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#0084FF,#4ADE80);transition:width 1s ease;}
+.moti-bar-marker{position:absolute;top:-4px;height:16px;width:2px;background:#FFD700;border-radius:1px;}
+.moti-bar-labels{display:flex;justify-content:space-between;}
+.moti-bar-labels span{font-size:8px;color:rgba(255,255,255,0.4);}
+.moti-bar-labels .gold{color:#FFD700;font-weight:700;}
+/* Insight pill */
+.insight-box{background:#FFFBEB;border:1px solid #FDE68A;border-radius:10px;padding:10px 12px;margin-bottom:14px;display:flex;align-items:center;gap:8px;}
+.insight-box .emoji{font-size:16px;flex-shrink:0;}
+.insight-box .msg{font-size:10px;color:#92400E;font-weight:600;line-height:1.4;}
+.insight-box .highlight{color:#D97706;font-weight:800;}
+/* Compare ref line in bar chart */
+.bar-ref{position:relative;}
+.bar-ref-line{position:absolute;left:0;right:0;border-top:1.5px dashed #FFD700;z-index:2;}
+.bar-ref-label{position:absolute;right:0;font-size:7px;color:#D97706;font-weight:700;background:#FFFBEB;padding:1px 4px;border-radius:3px;}
+/* Grade insight */
+.grade-insight{background:linear-gradient(135deg,#EBF6FF,#D1E5FD);border-radius:12px;padding:12px 14px;margin-bottom:12px;display:flex;align-items:center;gap:10px;}
+.grade-insight .gi-icon{font-size:24px;}
+.grade-insight .gi-body{flex:1;}
+.grade-insight .gi-title{font-size:11px;font-weight:800;color:#005FA3;}
+.grade-insight .gi-desc{font-size:9px;color:#0084FF;margin-top:2px;line-height:1.4;}
 /* Attendance */
 .qr-area{padding:20px;margin-bottom:14px;text-align:center;}
 .qr-msg{font-size:11px;color:#9DA2AA;margin-bottom:10px;font-weight:500;}
@@ -114,7 +137,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .qr-btn .timer-lbl{font-size:9px;color:rgba(255,255,255,0.7);margin-bottom:3px;}
 .qr-btn .timer-val{font-size:22px;font-weight:900;color:#fff;font-family:monospace;}
 .checkout-btn{padding:8px 24px;border-radius:9px;font-size:12px;font-weight:700;background:#FEF1EE;color:#E25544;}
-/* Timeline */
 .timeline{padding:14px;}
 .tl-title{font-size:11px;font-weight:700;color:#7D848C;margin-bottom:10px;}
 .tl-item{display:flex;gap:10px;position:relative;padding-bottom:14px;}
@@ -126,8 +148,7 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .tl-dot.out{border-color:#E25544;background:#E25544;}
 .tl-body .tl-time{font-size:10px;font-weight:700;color:#121314;font-family:monospace;}
 .tl-body .tl-desc{font-size:10px;color:#9DA2AA;margin-top:1px;}
-/* Bar chart */
-.bar-chart{display:flex;gap:3px;align-items:flex-end;height:90px;margin-bottom:10px;}
+.bar-chart{display:flex;gap:3px;align-items:flex-end;height:90px;margin-bottom:10px;position:relative;}
 .bar-col{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;}
 .bar-col .bar-val{font-size:7px;color:#9DA2AA;font-family:monospace;font-weight:600;}
 .bar-col .bar{width:100%;border-radius:3px;transition:height .3s;}
@@ -141,18 +162,16 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .goal-row .gp{font-size:9px;color:#0084FF;font-weight:700;}
 .goal-track{height:5px;background:#D6DAE2;border-radius:3px;overflow:hidden;}
 .goal-fill{height:100%;background:linear-gradient(90deg,#005FA3,#0084FF);border-radius:3px;}
-/* Trend tabs */
-.trend-tabs{display:flex;gap:4px;margin-bottom:12px;}
+.trend-tabs{display:flex;gap:4px;}
 .trend-tab{padding:5px 12px;border-radius:7px;font-size:10px;font-weight:600;color:#9DA2AA;background:#F5F7FA;}
 .trend-tab.sel{background:#121314;color:#fff;}
 .trend-chart{padding:12px;}
 .trend-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
 .trend-row:last-child{margin-bottom:0;}
 .trend-label{font-size:10px;color:#9DA2AA;width:20px;text-align:right;font-family:monospace;}
-.trend-bar-wrap{flex:1;height:8px;background:#F5F7FA;border-radius:4px;overflow:hidden;}
+.trend-bar-wrap{flex:1;height:8px;background:#F5F7FA;border-radius:4px;overflow:visible;position:relative;}
 .trend-bar{height:100%;border-radius:4px;}
 .trend-val{font-size:10px;font-weight:700;font-family:monospace;width:38px;}
-/* Notice */
 .notice-list{display:flex;flex-direction:column;gap:7px;}
 .notice-item{background:#fff;border-radius:12px;padding:12px 14px;cursor:pointer;}
 .notice-top{display:flex;align-items:center;gap:5px;margin-bottom:5px;}
@@ -168,7 +187,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .notice-detail .nd-title{font-size:15px;font-weight:800;color:#121314;margin-bottom:10px;line-height:1.4;}
 .notice-detail .nd-body{font-size:12px;color:#525860;line-height:1.7;}
 .notice-detail .nd-footer{margin-top:14px;padding-top:10px;border-top:1px solid #E6E9EF;font-size:10px;color:#9DA2AA;}
-/* Homework */
 .hw-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
 .hw-remain{font-size:11px;color:#9DA2AA;}
 .hw-progress{margin-bottom:14px;}
@@ -196,7 +214,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .hw-title{font-size:11px;font-weight:600;color:#121314;}
 .hw-title.struck{color:#9DA2AA;text-decoration:line-through;}
 .hw-sub{font-size:9px;color:#9DA2AA;}
-/* More/Profile page */
 .profile-card{padding:20px;text-align:center;margin-bottom:14px;}
 .profile-avatar{width:56px;height:56px;border-radius:16px;background:linear-gradient(135deg,#005FA3,#0084FF);display:flex;align-items:center;justify-content:center;margin:0 auto 10px;font-size:20px;font-weight:900;color:#fff;}
 .profile-name{font-size:16px;font-weight:800;color:#121314;}
@@ -205,7 +222,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .profile-stat{flex:1;background:#F5F7FA;border-radius:10px;padding:10px 8px;text-align:center;}
 .profile-stat .ps-val{font-size:14px;font-weight:800;color:#121314;}
 .profile-stat .ps-lbl{font-size:8px;color:#9DA2AA;margin-top:2px;}
-/* Grade */
 .grade-card{padding:14px;margin-bottom:10px;}
 .grade-top{display:flex;justify-content:space-between;align-items:start;margin-bottom:10px;}
 .grade-exam{font-size:13px;font-weight:800;color:#121314;}
@@ -217,14 +233,12 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .grade-subj .gs-name{font-size:8px;color:#9DA2AA;margin-bottom:2px;}
 .grade-subj .gs-grade{font-size:8px;font-weight:700;margin-top:2px;}
 .grade-total{display:flex;justify-content:space-between;font-size:10px;color:#9DA2AA;padding-top:8px;border-top:1px solid #F5F7FA;}
-/* Grade trend chart */
 .chart-area{padding:14px;}
 .chart-title{font-size:11px;font-weight:700;color:#7D848C;margin-bottom:10px;}
 .chart-svg{width:100%;}
 .chart-legend{display:flex;justify-content:center;gap:12px;margin-top:8px;}
 .chart-legend span{display:flex;align-items:center;gap:4px;font-size:9px;color:#7D848C;}
 .chart-legend .cl-dot{width:8px;height:3px;border-radius:2px;}
-/* Menu list */
 .menu-list{border-radius:14px;overflow:hidden;border:1px solid #E6E9EF;}
 .menu-item{display:flex;align-items:center;gap:10px;padding:13px 14px;background:#fff;border-bottom:1px solid #F5F7FA;}
 .menu-item:last-child{border:none;}
@@ -232,7 +246,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
 .menu-label{flex:1;font-size:12px;font-weight:600;color:#121314;}
 .menu-arrow{font-size:12px;color:#C0C5CC;}
 .menu-val{font-size:11px;color:#9DA2AA;font-weight:500;}
-/* Sub tabs */
 .sub-tabs{display:flex;gap:4px;margin-bottom:14px;padding-top:14px;}
 .sub-tab{padding:6px 14px;border-radius:8px;font-size:11px;font-weight:600;color:#9DA2AA;background:#fff;border:1px solid #E6E9EF;}
 .sub-tab.sel{background:#121314;color:#fff;border-color:#121314;}
@@ -260,7 +273,6 @@ button{font-family:inherit;cursor:pointer;border:none;outline:none;background:no
   <div class="nav-item" data-tab="notice"><div class="icon">📢<div class="badge">3</div></div><span class="label">공지</span></div>
   <div class="nav-item" data-tab="more"><div class="icon">👤</div><span class="label">더보기</span></div>
 </div>
-
 <script>
 var DAYS=["월","화","수","목","금","토","일"];
 var SUBJECTS={"영어":{color:"#E25544",bg:"#FEF1EE",gradient:"linear-gradient(135deg,#E25544,#EF7A6B)",label:"EN"},"수학":{color:"#0084FF",bg:"#EBF6FF",gradient:"linear-gradient(135deg,#005FA3,#0084FF)",label:"수"},"국어":{color:"#22A368",bg:"#EDFBF3",gradient:"linear-gradient(135deg,#1A8F58,#22A368)",label:"국"},"WISEUP":{color:"#005FA3",bg:"#D1E5FD",gradient:"linear-gradient(135deg,#005FA3,#3982CB)",label:"W"}};
@@ -270,20 +282,26 @@ var SELF_STUDY=[{day:1,start:"09:00",end:"22:00"},{day:2,start:"09:00",end:"22:0
 var NOTICES=[{id:1,type:"change",title:"3/5(수) 수학 휴강 안내",body:"허은솔 선생님 개인 사정으로 17:30 수학 수업이 휴강됩니다. 보강 일정은 추후 공지합니다.",author:"허은솔",date:"03/02",isNew:true},{id:2,type:"notice",title:"3월 모의고사 일정 변경",body:"3/8(토)에서 3/15(토)로 변경되었습니다. 시험 범위는 기존과 동일합니다.",author:"장현명 원장님",date:"03/01",isNew:true},{id:3,type:"notice",title:"자습실 이용 규칙 안내",body:"자습실 내 음식물 반입이 금지됩니다. 음료만 가능합니다.",author:"장현명 원장님",date:"02/28",isNew:false}];
 var homeworkData=[{id:1,subject:"영어",title:"단어장 Day 15~17 암기",due:"03/03",done:false},{id:2,subject:"수학",title:"수학의 정석 p.142~148",due:"03/05",done:false},{id:3,subject:"수학",title:"오답노트 정리 (2월 모의고사)",due:"03/04",done:true},{id:4,subject:"국어",title:"비문학 지문 3개 풀기",due:"03/06",done:false},{id:5,subject:"영어",title:"독해 워크북 Unit 8",due:"03/07",done:false}];
 var GRADES=[{exam:"3월 모의고사",date:"2026.03.04",total:48,scores:[{subj:"수학",score:96,grade:"1등급"},{subj:"영어",score:92,grade:"1등급"},{subj:"국어",score:99,grade:"1등급"}],rank:4,pct:8},{exam:"2월 단원평가",date:"2026.02.21",total:45,scores:[{subj:"수학",score:88,grade:"2등급"},{subj:"영어",score:95,grade:"1등급"},{subj:"국어",score:91,grade:"1등급"}],rank:5,pct:12},{exam:"1월 종합평가",date:"2026.01.28",total:50,scores:[{subj:"수학",score:85,grade:"2등급"},{subj:"영어",score:90,grade:"1등급"},{subj:"국어",score:87,grade:"2등급"}],rank:7,pct:15}];
+var MOTIVATIONS=[
+  {음:"🎓",msg:"서울대 합격생들은 하루 평균 <b>11.5시간</b> 공부했습니다.",src:"출처: 수능 만점자 설문조사 2025",ref:11.5},
+  {음:"💪",msg:"의대 합격생 주간 평균 공부시간은 <b>72시간</b>입니다.",src:"출처: 의대 합격 수기 분석",ref:72},
+  {음:"🚀",msg:"상위 1% 학생들의 <b>자습 비율은 62%</b> 이상입니다.\n수업보다 자기주도 학습이 핵심입니다.",src:"출처: 교육부 학습방법 연구",ref:62},
+  {음:"🏆",msg:"수능 만점자들의 공통점: <b>오답노트</b>를 \n평균 <b>3회 이상</b> 반복 학습했습니다.",src:"출처: EBS 수능 분석 리포트",ref:0}
+];
 
 function t2m(t){var p=t.split(":");return parseInt(p[0])*60+parseInt(p[1]);}
 function fmtD(m){var h=Math.floor(m/60),r=m%60;if(h>0&&r>0)return h+"h "+r+"m";if(h>0)return h+"h";return r+"m";}
 function findSS(d){for(var i=0;i<SELF_STUDY.length;i++){if(SELF_STUDY[i].day===d)return SELF_STUDY[i];}return null;}
 function getStats(d){var ss=findSS(d),cls=CLASSES.filter(function(c){return c.day===d;}),ta=ss?t2m(ss.end)-t2m(ss.start):0,tc=0;cls.forEach(function(c){tc+=t2m(c.end)-t2m(c.start);});return{ta:ta,tc:tc,ts:Math.max(0,ta-tc),cc:cls.length};}
-var SIM_NOW=17*60+45; // 17:45 시뮬레이션
-var currentDay=0; // 월요일
+var SIM_NOW=17*60+45;
+var currentDay=0;
 var checkedIn=true;
 var moreSubTab='grade';
 var noticeSubTab='notice';
 var noticeSelected=null;
-var timerSec=6420; // 1h47m
+var timerSec=6420;
+var motiIdx=0;
 
-/* ═══ Tab Switch ═══ */
 function switchTab(name){
   document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
   var ni=document.querySelector('[data-tab="'+name+'"]');
@@ -292,9 +310,7 @@ function switchTab(name){
   document.getElementById('tab-'+name).classList.add('active');
 }
 document.querySelectorAll('.nav-item').forEach(function(item){
-  item.addEventListener('click',function(){
-    switchTab(item.dataset.tab);
-  });
+  item.addEventListener('click',function(){switchTab(item.dataset.tab);});
 });
 
 /* ═══ HOME ═══ */
@@ -306,6 +322,7 @@ function renderHome(){
     if(!nextCls&&t2m(c.start)>SIM_NOW) nextCls=c;
   });
   var pending=homeworkData.filter(function(h){return !h.done;});
+  var myHours=timerSec/3600;
   var h='<div class="home-header"><div class="greeting">안녕, 김서준 👋</div><div class="greeting-sub">3월 6일 금요일 · 봄시즌</div></div>';
   // Status card
   h+='<div class="status-card">';
@@ -315,10 +332,23 @@ function renderHome(){
   h+='<div class="status-stats" style="margin-top:12px"><div class="status-stat"><div class="sv">'+fmtD(timerSec/60|0)+'</div><div class="sl">순공부시간</div></div>';
   h+='<div class="status-stat"><div class="sv">'+cls.length+'</div><div class="sl">오늘 수업</div></div>';
   h+='<div class="status-stat"><div class="sv">'+pending.length+'</div><div class="sl">남은 숙제</div></div></div></div>';
+  // ⭐ Motivation Card
+  var m=MOTIVATIONS[motiIdx%MOTIVATIONS.length];
+  h+='<div class="moti-card" onclick="motiIdx++;renderHome()">';
+  h+='<div style="font-size:18px;margin-bottom:6px">'+m['음']+'</div>';
+  h+='<div class="moti-quote">'+m.msg+'</div>';
+  h+='<div class="moti-source">'+m.src+' · 터치하면 다음 팁</div>';
+  if(m.ref>0){
+    var myPct=Math.min(100,Math.round(myHours/m.ref*100));
+    h+='<div class="moti-compare"><div class="moti-compare-title">나의 오늘 vs 합격생 평균</div>';
+    h+='<div class="moti-bar-wrap"><div class="moti-bar-fill" style="width:'+myPct+'%"></div>';
+    h+='<div class="moti-bar-marker" style="left:calc(100% - 2px)"></div></div>';
+    h+='<div class="moti-bar-labels"><span>나 '+myHours.toFixed(1)+'h</span><span class="gold">🌟 '+m.ref+'h</span></div></div>';
+  }
+  h+='</div>';
   // Next class
   if(nextCls){
     var mins=t2m(nextCls.start)-SIM_NOW;
-    var st=getSt(nextCls.name);
     h+='<div class="home-section"><div class="section-header"><span style="font-size:13px;font-weight:700;color:#121314">다음 수업</span></div>';
     h+='<div class="card"><div class="next-class"><div class="countdown">'+mins+'<span style="font-size:11px;color:#9DA2AA">분 후</span></div>';
     h+='<div class="nc-info"><div class="nc-name">'+nextCls.name+'</div><div class="nc-meta">'+(nextCls.teacher?nextCls.teacher+' · ':'')+nextCls.start+'–'+nextCls.end+' · '+nextCls.room+'</div></div></div></div></div>';
@@ -333,8 +363,7 @@ function renderHome(){
       h+='<div style="padding:10px 14px;border-bottom:1px solid #F5F7FA;display:flex;align-items:center;gap:8px" onclick="noticeSelected='+n.id+';switchTab(\'notice\');renderNotice();">';
       h+='<span class="notice-tag" style="background:'+tm.bg+';color:'+tm.color+';flex-shrink:0">'+tm.label+'</span>';
       h+='<span style="font-size:11px;font-weight:600;color:#121314;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+n.title+'</span>';
-      h+='<span class="notice-dot"></span></div>';
-    });
+      h+='<span class="notice-dot"></span></div>';});
     h+='</div></div>';
   }
   // Urgent homework
@@ -342,13 +371,11 @@ function renderHome(){
     h+='<div class="home-section"><div class="section-header"><span style="font-size:13px;font-weight:700;color:#121314">숙제</span><span style="font-size:10px;color:#E25544;font-weight:700">'+pending.length+'개 남음</span></div>';
     h+='<div class="card" style="overflow:hidden">';
     pending.slice(0,3).forEach(function(hw){
-      var st=getSt(hw.subject), isUrgent=hw.due<='03/04';
+      var st=getSt(hw.subject),isUrgent=hw.due<='03/04';
       h+='<div class="mini-hw"><div class="hw-dot" style="background:'+st.color+'"></div>';
       h+='<span class="hw-t">'+hw.title+'</span>';
-      h+='<span class="hw-d '+(isUrgent?'urgent':'normal')+'">'+hw.due+'</span></div>';
-    });
-    h+='</div></div>';
-  }
+      h+='<span class="hw-d '+(isUrgent?'urgent':'normal')+'">'+hw.due+'</span></div>';});
+    h+='</div></div>';}
   document.getElementById('tab-home').innerHTML=h;
 }
 
@@ -356,21 +383,25 @@ function renderHome(){
 function renderSchedule(){
   var cls=CLASSES.filter(function(c){return c.day===currentDay;}).sort(function(a,b){return t2m(a.start)-t2m(b.start);});
   var ss=findSS(currentDay),stats=getStats(currentDay);
-  var isToday=currentDay===0; // 시뮬레이션: 월요일=오늘
+  var isToday=currentDay===0;
   var h='<div style="padding-top:14px"><div class="section-title">시간표</div></div>';
   h+='<div class="day-tabs">';
   for(var i=0;i<7;i++){var sel=i===currentDay,st=getStats(i),extra=i===5?' sat':i===6?' sun':'';
     h+='<button class="day-tab'+(sel?' sel':'')+extra+'" onclick="selectDay('+i+')">';
-    h+='<span>'+DAYS[i]+'</span>';
-    if(st.cc>0)h+='<div class="cnt">'+st.cc+'수업</div>';h+='</button>';}
+    h+='<span>'+DAYS[i]+'</span>';if(st.cc>0)h+='<div class="cnt">'+st.cc+'수업</div>';h+='</button>';}
   h+='</div>';
   if(ss){
     h+='<div class="attend-row"><div class="attend-card"><div class="lbl">등원</div><div class="val">'+ss.start+' <span class="arr">→</span> '+ss.end+'</div></div>';
     h+='<div class="study-card"><div class="lbl">순공부</div><div class="val">'+fmtD(stats.ta)+'</div></div></div>';
     if(stats.ta>0){h+='<div class="time-bar">';if(stats.tc>0)h+='<div class="cls" style="flex:'+stats.tc+'"></div>';if(stats.ts>0)h+='<div class="self" style="flex:'+stats.ts+'"></div>';h+='</div>';
     h+='<div class="time-legend">';if(stats.tc>0)h+='<span><div class="dot" style="background:#0084FF"></div>수업 '+fmtD(stats.tc)+'</span>';if(stats.ts>0)h+='<span><div class="dot" style="background:#C0C5CC"></div>자습 '+fmtD(stats.ts)+'</span>';h+='</div>';}
+    // ⭐ Self-study ratio insight
+    if(stats.ts>0&&stats.ta>0){
+      var selfPct=Math.round(stats.ts/stats.ta*100);
+      h+='<div class="insight-box"><span class="emoji">💡</span><div class="msg">오늘 자습 비율 <span class="highlight">'+selfPct+'%</span> · 상위 1% 학생 평균 <span class="highlight">62%</span>'+(selfPct>=62?' 🔥 달성!':' → '+(62-selfPct)+'%p 더 노력!')+'</div></div>';
+    }
   }
-  if(cls.length===0){h+='<div class="empty-msg">'+(ss?'오늘은 자습 Day 📖':'스케줄 없음')+'</div>';}
+  if(cls.length===0){h+='<div class="empty-msg">'+(ss?'오늘은 자습 Day 📖 · 자기주도 학습의 날!':'스케줄 없음')+'</div>';}
   else{
     h+='<div class="class-list">';
     for(var j=0;j<cls.length;j++){var ev=cls[j],st=getSt(ev.name),dur=t2m(ev.end)-t2m(ev.start);
@@ -402,40 +433,51 @@ function renderAttendance(){
   var h='<div style="padding-top:14px"><div class="section-title">출결</div></div>';
   h+='<div class="card qr-area"><div class="qr-msg">'+(checkedIn?'학원에서 공부 중':'QR 태그를 찍어 등원하세요')+'</div>';
   h+='<div class="qr-btn '+(checkedIn?'on':'off')+'" onclick="toggleCheckIn()">';
-  if(checkedIn){var m=timerSec/60|0,s=timerSec%60;h+='<div class="timer-lbl">공부 중</div><div class="timer-val" id="timerVal">'+(m/60|0)+':'+((m%60)<10?'0':'')+(m%60)+'</div>';}
+  if(checkedIn){var m=timerSec/60|0;h+='<div class="timer-lbl">공부 중</div><div class="timer-val" id="timerVal">'+(m/60|0)+':'+((m%60)<10?'0':'')+(m%60)+'</div>';}
   else h+='<div class="emoji">📲</div><div class="hint">터치로 테스트</div>';
   h+='</div>';
   if(checkedIn)h+='<button class="checkout-btn" onclick="toggleCheckIn()">하원하기</button>';
   h+='</div>';
-  // Today timeline
+  // Timeline
   h+='<div class="card timeline"><div class="tl-title">오늘 입퇴실 기록</div>';
   h+='<div class="tl-item"><div class="tl-dot in"></div><div class="tl-body"><div class="tl-time">09:02</div><div class="tl-desc">등원 · QR 체크인</div></div></div>';
   h+='<div class="tl-item"><div class="tl-dot out"></div><div class="tl-body"><div class="tl-time">12:15</div><div class="tl-desc">외출 · 점심식사</div></div></div>';
   h+='<div class="tl-item"><div class="tl-dot in"></div><div class="tl-body"><div class="tl-time">12:58</div><div class="tl-desc">복귀</div></div></div>';
   h+='<div class="tl-item"><div class="tl-dot out"></div><div class="tl-body"><div class="tl-time">15:30</div><div class="tl-desc">외출 · 간식</div></div></div>';
-  h+='<div class="tl-item"><div class="tl-dot in"></div><div class="tl-body"><div class="tl-time">15:45</div><div class="tl-desc">복귀 · 현재 공부중</div></div></div>';
-  h+='</div>';
-  // Weekly bar
-  h+='<div class="card card-p" style="margin-top:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:12px;font-weight:700;color:#121314">이번 주 출결</span><span class="week-total" style="font-size:11px;font-weight:800;color:#0084FF">'+tw+'h</span></div>';
-  h+='<div class="bar-chart">';
+  h+='<div class="tl-item"><div class="tl-dot in"></div><div class="tl-body"><div class="tl-time">15:45</div><div class="tl-desc">복귀 · 현재 공부중</div></div></div></div>';
+  // ⭐ Weekly bar with Seoul Nat'l reference line
+  var snu_daily=11.5;
+  var refH=Math.round((snu_daily/13)*80); // bar chart height reference
+  h+='<div class="card card-p" style="margin-top:10px"><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px"><span style="font-size:12px;font-weight:700;color:#121314">이번 주 출결</span><span style="font-size:11px;font-weight:800;color:#0084FF">'+tw+'h</span></div>';
+  h+='<div class="bar-chart" style="position:relative">';
+  // Reference line
+  h+='<div style="position:absolute;left:0;right:0;bottom:'+(refH+16)+'px;border-top:1.5px dashed #FFD700;z-index:2"></div>';
+  h+='<div style="position:absolute;right:0;bottom:'+(refH+18)+'px;font-size:7px;color:#D97706;font-weight:700;background:#FFFBEB;padding:1px 5px;border-radius:3px;z-index:3">🌟 서울대생 '+snu_daily+'h/일</div>';
   wr.forEach(function(r){var barH=r.h>0?Math.max(8,(r.h/13)*80):4;
     h+='<div class="bar-col"><span class="bar-val">'+(r.h>0?r.h+'h':'')+'</span><div class="bar '+(r.h>0?'filled':'empty')+'" style="height:'+barH+'px"></div><span class="bar-day'+(r.h>0?' active':'')+'">'+ r.d+'</span></div>';});
   h+='</div>';
-  h+='<div class="goal-box"><div class="goal-row"><span class="gl">주간 목표 60h</span><span class="gp">'+Math.round(tw/60*100)+'%</span></div><div class="goal-track"><div class="goal-fill" style="width:'+Math.min(100,tw/60*100)+'%"></div></div></div></div>';
+  h+='<div class="goal-box"><div class="goal-row"><span class="gl">주간 목표 60h · <span style="color:#D97706">서울대생 72h</span></span><span class="gp">'+Math.round(tw/60*100)+'%</span></div><div class="goal-track" style="position:relative"><div class="goal-fill" style="width:'+Math.min(100,tw/60*100)+'%"></div><div style="position:absolute;top:0;bottom:0;left:'+(72/80*100)+'%;width:2px;background:#FFD700;border-radius:1px"></div></div></div></div>';
+  // ⭐ Insight
+  var avgH=tw/4; // 4 days so far
+  h+='<div class="insight-box" style="margin-top:10px"><span class="emoji">'+(avgH>=10?'🔥':'💪')+'</span><div class="msg">이번주 일평균 <span class="highlight">'+avgH.toFixed(1)+'h</span> · 서울대 합격생 평균 11.5h'+(avgH>=11.5?' 🎉 합격생 페이스!':' · 하루 '+(11.5-avgH).toFixed(1)+'h 더 채우면 도달!')+'</div></div>';
   // Trend
   h+='<div class="card" style="margin-top:10px"><div class="trend-chart">';
   h+='<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px"><span style="font-size:12px;font-weight:700;color:#121314">공부시간 추이</span>';
-  h+='<div class="trend-tabs"><button class="trend-tab sel" onclick="this.parentElement.querySelectorAll(\'.trend-tab\').forEach(t=>t.classList.remove(\'sel\'));this.classList.add(\'sel\')">일</button><button class="trend-tab" onclick="this.parentElement.querySelectorAll(\'.trend-tab\').forEach(t=>t.classList.remove(\'sel\'));this.classList.add(\'sel\')">주</button><button class="trend-tab" onclick="this.parentElement.querySelectorAll(\'.trend-tab\').forEach(t=>t.classList.remove(\'sel\'));this.classList.add(\'sel\')">월</button></div></div>';
+  h+='<div class="trend-tabs"><button class="trend-tab sel">일</button><button class="trend-tab">주</button><button class="trend-tab">월</button></div></div>';
   var days7=[{l:"2/28",v:11.5},{l:"3/1",v:12},{l:"3/2",v:10},{l:"3/3",v:13},{l:"3/4",v:12.5},{l:"3/5",v:11},{l:"3/6",v:4.5}];
   days7.forEach(function(d){
     var pct=Math.round(d.v/13*100);
-    h+='<div class="trend-row"><span class="trend-label">'+d.l+'</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:'+pct+'%;background:linear-gradient(90deg,#005FA3,#0084FF)"></div></div><span class="trend-val" style="color:'+(d.v>=10?'#0084FF':'#9DA2AA')+'">'+d.v+'h</span></div>';});
+    h+='<div class="trend-row"><span class="trend-label">'+d.l+'</span><div class="trend-bar-wrap"><div class="trend-bar" style="width:'+pct+'%;background:linear-gradient(90deg,#005FA3,#0084FF);border-radius:4px;height:100%"></div>';
+    // SNU ref marker
+    h+='<div style="position:absolute;top:-1px;bottom:-1px;left:'+Math.round(11.5/13*100)+'%;width:1.5px;background:#FFD700;border-radius:1px"></div>';
+    h+='</div><span class="trend-val" style="color:'+(d.v>=11.5?'#0084FF':d.v>=10?'#7D848C':'#E25544')+'">'+d.v+'h</span></div>';});
+  h+='<div style="display:flex;justify-content:flex-end;gap:8px;margin-top:6px;font-size:8px"><span style="color:#9DA2AA">내 기록</span><span style="display:flex;align-items:center;gap:2px"><span style="display:inline-block;width:6px;height:1.5px;background:#FFD700;border-radius:1px"></span><span style="color:#D97706">서울대생</span></span></div>';
   h+='</div></div>';
   document.getElementById('tab-attendance').innerHTML=h;
 }
 function toggleCheckIn(){checkedIn=!checkedIn;renderAttendance();}
 
-/* ═══ NOTICE (공지+숙제) ═══ */
+/* ═══ NOTICE ═══ */
 function renderNotice(){
   var h='<div class="sub-tabs">';
   h+='<button class="sub-tab'+(noticeSubTab==='notice'?' sel':'')+'" onclick="noticeSubTab=\'notice\';noticeSelected=null;renderNotice()">공지사항</button>';
@@ -476,7 +518,7 @@ function renderHomework(){
 }
 function toggleHw(id){homeworkData.forEach(function(h){if(h.id===id)h.done=!h.done;});renderNotice();}
 
-/* ═══ MORE (성적+프로필) ═══ */
+/* ═══ MORE ═══ */
 function renderMore(){
   var h='<div class="sub-tabs"><button class="sub-tab'+(moreSubTab==='grade'?' sel':'')+'" onclick="moreSubTab=\'grade\';renderMore()">성적</button>';
   h+='<button class="sub-tab'+(moreSubTab==='profile'?' sel':'')+'" onclick="moreSubTab=\'profile\';renderMore()">프로필</button></div>';
@@ -486,27 +528,32 @@ function renderMore(){
 }
 function renderGrade(){
   var h='';
-  // Trend chart (SVG)
+  // ⭐ Grade insight - trend prediction
+  h+='<div class="grade-insight"><div class="gi-icon">📈</div><div class="gi-body"><div class="gi-title">수학 3개월 연속 상승 중!</div><div class="gi-desc">85→ 88 → 96점 · 이 추세로 다음 시험 <b>상위 5%</b> 예상</div></div></div>';
+  h+='<div class="grade-insight" style="background:linear-gradient(135deg,#EDFBF3,#D1F5E0)"><div class="gi-icon">🌟</div><div class="gi-body"><div class="gi-title" style="color:#1A8F58">전과목 평균 87.3 → 95.7</div><div class="gi-desc" style="color:#22A368">서울대 합격생 평균 94점 · 현재 <b>합격권</b> 성적!</div></div></div>';
+  // Trend chart
   h+='<div class="card chart-area"><div class="chart-title">과목별 점수 추이</div>';
-  h+='<svg class="chart-svg" viewBox="0 0 300 120" style="overflow:visible">';
-  // Grid
+  h+='<svg class="chart-svg" viewBox="0 0 300 130" style="overflow:visible">';
   [100,90,80].forEach(function(v,i){var y=10+i*40;
     h+='<line x1="30" y1="'+y+'" x2="280" y2="'+y+'" stroke="#E6E9EF" stroke-width="0.5"/>';
     h+='<text x="25" y="'+(y+3)+'" text-anchor="end" fill="#C0C5CC" font-size="8" font-family="monospace">'+v+'</text>';});
+  // SNU average line
+  var snuY=10+(100-94)*4;
+  h+='<line x1="30" y1="'+snuY+'" x2="280" y2="'+snuY+'" stroke="#FFD700" stroke-width="1" stroke-dasharray="4,3"/>';
+  h+='<text x="282" y="'+(snuY+3)+'" fill="#D97706" font-size="7" font-weight="700">서울대 94</text>';
   var labels=["1월","2월","3월"];
   labels.forEach(function(l,i){var x=80+i*100;
-    h+='<text x="'+x+'" y="118" text-anchor="middle" fill="#9DA2AA" font-size="8" font-weight="600">'+l+'</text>';});
-  // Lines
+    h+='<text x="'+x+'" y="128" text-anchor="middle" fill="#9DA2AA" font-size="8" font-weight="600">'+l+'</text>';});
   var mathS=[85,88,96],engS=[90,95,92],korS=[87,91,99];
   function yPos(s){return 10+(100-s)*4;}
   function drawLine(scores,color){
-    var pts=scores.map(function(s,i){return (80+i*100)+','+yPos(s);}).join(' ');
+    var pts=scores.map(function(s,i){return(80+i*100)+','+yPos(s);}).join(' ');
     h+='<polyline points="'+pts+'" fill="none" stroke="'+color+'" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
     scores.forEach(function(s,i){h+='<circle cx="'+(80+i*100)+'" cy="'+yPos(s)+'" r="3.5" fill="'+color+'" stroke="#fff" stroke-width="1.5"/>';});
     h+='<text x="'+(80+(scores.length-1)*100+8)+'" y="'+(yPos(scores[scores.length-1])+3)+'" fill="'+color+'" font-size="9" font-weight="700">'+scores[scores.length-1]+'</text>';}
   drawLine(mathS,'#0084FF');drawLine(engS,'#E25544');drawLine(korS,'#22A368');
   h+='</svg>';
-  h+='<div class="chart-legend"><span><div class="cl-dot" style="background:#0084FF"></div>수학</span><span><div class="cl-dot" style="background:#E25544"></div>영어</span><span><div class="cl-dot" style="background:#22A368"></div>국어</span></div></div>';
+  h+='<div class="chart-legend"><span><div class="cl-dot" style="background:#0084FF"></div>수학</span><span><div class="cl-dot" style="background:#E25544"></div>영어</span><span><div class="cl-dot" style="background:#22A368"></div>국어</span><span><div class="cl-dot" style="background:#FFD700"></div>서울대</span></div></div>';
   // Exam cards
   GRADES.forEach(function(g){
     var totalScore=0,totalMax=g.scores.length*100;
@@ -526,19 +573,17 @@ function renderProfile(){
   h+='<div class="profile-stats"><div class="profile-stat"><div class="ps-val">메가스터디</div><div class="ps-lbl">학원</div></div>';
   h+='<div class="profile-stat"><div class="ps-val">2026 봄</div><div class="ps-lbl">시즌</div></div>';
   h+='<div class="profile-stat"><div class="ps-val">A-12</div><div class="ps-lbl">좌석</div></div></div></div>';
-  // Menu
   h+='<div class="menu-list">';
   h+='<div class="menu-item"><div class="menu-icon" style="background:#EBF6FF">📚</div><span class="menu-label">수강 중인 강좌</span><span class="menu-val">5개</span><span class="menu-arrow">›</span></div>';
   h+='<div class="menu-item"><div class="menu-icon" style="background:#EDFBF3">💺</div><span class="menu-label">자습실 배정 좌석</span><span class="menu-val">A자습실 12번</span><span class="menu-arrow">›</span></div>';
   h+='<div class="menu-item"><div class="menu-icon" style="background:#FEF1EE">📊</div><span class="menu-label">출결 통계</span><span class="menu-val">출석률 96%</span><span class="menu-arrow">›</span></div>';
   h+='<div class="menu-item"><div class="menu-icon" style="background:#F3E8FF">🔔</div><span class="menu-label">알림 설정</span><span class="menu-arrow">›</span></div>';
   h+='<div class="menu-item"><div class="menu-icon" style="background:#F5F7FA">❓</div><span class="menu-label">도움말</span><span class="menu-arrow">›</span></div>';
-  h+='<div class="menu-item" onclick="alert(\'로그아웃\')"><div class="menu-icon" style="background:#F5F7FA">🚪</div><span class="menu-label" style="color:#E25544">로그아웃</span><span class="menu-arrow">›</span></div>';
+  h+='<div class="menu-item" onclick="alert(\'\ub85c\uadf8\uc544\uc6c3\')"><div class="menu-icon" style="background:#F5F7FA">🚪</div><span class="menu-label" style="color:#E25544">로그아웃</span><span class="menu-arrow">›</span></div>';
   h+='</div>';
   return h;
 }
 
-/* ═══ INIT ═══ */
 renderHome();renderSchedule();renderAttendance();renderNotice();renderMore();
 </script>
 </body>
